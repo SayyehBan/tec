@@ -1,10 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:tec/gen/fonts.gen.dart';
-import 'package:tec/screen/home/homeScreen.dart';
 import 'package:tec/screen/splash/splashScreen.dart';
+import 'package:tec/utilities/myColors.dart';
 
 void main() {
+  SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
+      statusBarColor: solidColors.statusBarColor,
+      statusBarIconBrightness: Brightness.dark,
+      systemNavigationBarColor: solidColors.systemNavigationBarColor,
+      systemNavigationBarIconBrightness: Brightness.dark));
   runApp(const MyApp());
 }
 
