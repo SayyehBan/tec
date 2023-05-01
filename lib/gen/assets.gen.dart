@@ -15,8 +15,14 @@ class $AssetsIconsGen {
   /// File path: assets/icons/Hashtag.png
   AssetGenImage get hashtag => const AssetGenImage('assets/icons/Hashtag.png');
 
+  /// File path: assets/icons/blueMic.png
+  AssetGenImage get blueMic => const AssetGenImage('assets/icons/blueMic.png');
+
+  /// File path: assets/icons/bluePen.png
+  AssetGenImage get bluePen => const AssetGenImage('assets/icons/bluePen.png');
+
   /// List of all assets
-  List<AssetGenImage> get values => [hashtag];
+  List<AssetGenImage> get values => [hashtag, blueMic, bluePen];
 }
 
 class $AssetsImagesGen {
