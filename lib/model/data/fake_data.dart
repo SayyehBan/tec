@@ -2,7 +2,7 @@ import 'package:tec/gen/assets.gen.dart';
 import 'package:tec/model/model/data_models.dart';
 
 Map homePagePosterMap = {
-  "imageAsset": Assets.images.poster.path,
+  "imageAsset": Assets.images.programming.path,
   "writer": "مليكا عزیزی",
   "date": "یک روز پیش",
   "title": " دوازده قدم برنامه نویسی یک دوره",

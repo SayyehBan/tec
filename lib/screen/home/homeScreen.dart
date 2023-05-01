@@ -4,7 +4,6 @@ import 'package:tec/model/data/fake_data.dart';
 import 'package:tec/screen/home/poster.dart';
 import 'package:tec/screen/home/tagList.dart';
 import 'package:tec/screen/home/titleBlog.dart';
-import 'package:tec/utilities/myColors.dart';
 import 'package:tec/utilities/myString.dart';
 
 class HomScreen extends StatelessWidget {
