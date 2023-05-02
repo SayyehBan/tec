@@ -26,7 +26,7 @@ class MyApp extends StatelessWidget {
           textTheme: const TextTheme(
             displaySmall: TextStyle(
                 fontFamily: FontFamily.bTitr,
-                fontSize: 16,
+                fontSize: 14,
                 color: solidColors.posterSubTitle,
                 fontWeight: FontWeight.w300),
             displayMedium: TextStyle(

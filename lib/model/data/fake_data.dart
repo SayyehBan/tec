@@ -1,14 +1,6 @@
 import 'package:tec/gen/assets.gen.dart';
 import 'package:tec/model/model/data_models.dart';
 
-Map homePagePosterMap = {
-  "imageAsset": Assets.images.programming.path,
-  "writer": "مليكا عزیزی",
-  "date": "یک روز پیش",
-  "title": " دوازده قدم برنامه نویسی یک دوره",
-  "view": "251"
-};
-
 //blog fake data
 
 List<HashTagModel> tagList = [
@@ -171,3 +163,11 @@ List<BlogModel> blogList = [
           "نمایندگان مجلس در ادامه رسیدگی به طرح مالیات بر عایدی سرمایه، انواع رمزارزها را مشمول مالیات بر عایدی سرمایه دانستند.",
       views: "46"),
 ];
+
+Map homePagePosterMap = {
+  "imageAssets": Assets.images.programming.path,
+  "writer": "مهسا امینی",
+  "date": "یک روز پیش",
+  "title": "دوازده قدم برنامه نویسی یک دوره",
+  "view": "1500"
+};

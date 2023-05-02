@@ -1,5 +1,7 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:tec/gen/assets.gen.dart';
+import 'package:tec/model/data/fake_data.dart';
 import 'package:tec/utilities/myColors.dart';
 
 class Poster extends StatelessWidget {
@@ -17,7 +19,7 @@ class Poster extends StatelessWidget {
           decoration: BoxDecoration(
             borderRadius: const BorderRadius.all(Radius.circular(16)),
             image: DecorationImage(
-                image: AssetImage(Assets.images.programming.path),
+                image: AssetImage(homePagePosterMap["imageAssets"]),
                 fit: BoxFit.fill),
           ),
           foregroundDecoration: const BoxDecoration(
@@ -37,17 +39,31 @@ class Poster extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
                   Text(
-                    'مهسا امینی - یک روز پیش',
+                    homePagePosterMap["writer"] +
+                        " " +
+                        homePagePosterMap["date"],
                     style: themeData.textTheme.displaySmall,
                   ),
-                  Text(
-                    '253 پسندیده شد',
-                    style: themeData.textTheme.displaySmall,
+                  Row(
+                    children: [
+                      Text(
+                        homePagePosterMap['view'],
+                        style: themeData.textTheme.displaySmall,
+                      ),
+                      const SizedBox(
+                        width: 8,
+                      ),
+                      const Icon(
+                        CupertinoIcons.eye_fill,
+                        color: Colors.white,
+                        size: 16,
+                      ),
+                    ],
                   )
                 ],
               ),
               Text(
-                'دوازده قدم برنامه نویسی یک دوره ی...س',
+                homePagePosterMap["title"],
                 style: themeData.textTheme.displayMedium,
               )
             ],

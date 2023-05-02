@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tec/gen/assets.gen.dart';
-import 'package:tec/model/data/fake_data.dart';
+import 'package:tec/screen/home/blogList.dart';
 import 'package:tec/screen/home/poster.dart';
 import 'package:tec/screen/home/tagList.dart';
 import 'package:tec/screen/home/titleBlog.dart';
@@ -47,27 +47,8 @@ class HomScreen extends StatelessWidget {
               image: Assets.icons.bluePen.path,
               title: myStrings.viewHottestPosts,
             ),
-            Padding(
-              padding: EdgeInsets.only(right: bodyMargin),
-              child: SizedBox(
-                height: size.height / 4.1,
-                child: ListView.builder(
-                  physics: const BouncingScrollPhysics(),
-                  itemCount: blogList.length,
-                  scrollDirection: Axis.horizontal,
-                  itemBuilder: (context, index) {
-                    return Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Container(
-                        height: 50,
-                        width: 100,
-                        color: Colors.amber,
-                      ),
-                    );
-                  },
-                ),
-              ),
-            )
+            //Blog List
+            const BlogList()
           ],
         ),
       )),
