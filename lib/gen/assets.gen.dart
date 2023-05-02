@@ -21,8 +21,18 @@ class $AssetsIconsGen {
   /// File path: assets/icons/bluePen.png
   AssetGenImage get bluePen => const AssetGenImage('assets/icons/bluePen.png');
 
+  /// File path: assets/icons/home.png
+  AssetGenImage get home => const AssetGenImage('assets/icons/home.png');
+
+  /// File path: assets/icons/user.png
+  AssetGenImage get user => const AssetGenImage('assets/icons/user.png');
+
+  /// File path: assets/icons/writer.png
+  AssetGenImage get writer => const AssetGenImage('assets/icons/writer.png');
+
   /// List of all assets
-  List<AssetGenImage> get values => [hashtag, blueMic, bluePen];
+  List<AssetGenImage> get values =>
+      [hashtag, blueMic, bluePen, home, user, writer];
 }
 
 class $AssetsImagesGen {

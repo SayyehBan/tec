@@ -86,6 +86,7 @@ class BlogList extends StatelessWidget {
                   width: size.width / 2.4,
                   child: Text(
                     blogList[index].title,
+                    style: themeData.textTheme.headlineMedium,
                     overflow: TextOverflow.ellipsis,
                     maxLines: 2,
                   ))
