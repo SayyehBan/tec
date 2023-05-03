@@ -18,10 +18,9 @@ class _RootScreenState extends State<RootScreen> {
   final GlobalKey<NavigatorState> _profileKey = GlobalKey();
   final List<int> _history = [];
   late final map = {
-    homeIndex:_homeKey,
-    writerIndex:_writerKey,
-    profileIndex:_profileKey
-
+    homeIndex: _homeKey,
+    writerIndex: _writerKey,
+    profileIndex: _profileKey
   };
   Future<bool> _onWillPop() async {
     final NavigatorState currentSelectedTabNavigatorState =
@@ -41,6 +40,6 @@ class _RootScreenState extends State<RootScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return WillPopScope(child: child, onWillPop: _onWillPop)
+    return WillPopScope(child: Text('data'), onWillPop: _onWillPop);
   }
 }
