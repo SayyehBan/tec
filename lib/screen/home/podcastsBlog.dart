@@ -1,7 +1,6 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:tec/model/data/fake_data.dart';
-import 'package:tec/utilities/myColors.dart';
+import 'package:tec/utilities/sizerScreen.dart';
 
 class PodcastsBlog extends StatelessWidget {
   const PodcastsBlog({
@@ -10,11 +9,11 @@ class PodcastsBlog extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var size = MediaQuery.of(context).size;
     ThemeData themeData = Theme.of(context);
-    double bodyMargin = size.width / 10;
+    double bodyMargin = SizeScreen(context).bodyMargin;
+    var size = SizeScreen(context).size;
     return SizedBox(
-      height: size.height / 3.5,
+      height: SizeScreen(context).size.height / 3.5,
       child: ListView.builder(
         physics: const BouncingScrollPhysics(),
         itemCount: blogList.length,

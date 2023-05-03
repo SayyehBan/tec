@@ -1,16 +1,16 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:tec/gen/assets.gen.dart';
 import 'package:tec/model/data/fake_data.dart';
 import 'package:tec/utilities/myColors.dart';
+import 'package:tec/utilities/sizerScreen.dart';
 
 class Poster extends StatelessWidget {
   const Poster({super.key});
 
   @override
   Widget build(BuildContext context) {
-    var size = MediaQuery.of(context).size;
     ThemeData themeData = Theme.of(context);
+    var size = SizeScreen(context).size;
     return Stack(
       children: [
         Container(

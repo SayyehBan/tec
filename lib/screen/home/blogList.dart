@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:tec/model/data/fake_data.dart';
 import 'package:tec/utilities/myColors.dart';
+import 'package:tec/utilities/sizerScreen.dart';
 
 class BlogList extends StatelessWidget {
   const BlogList({
@@ -10,9 +11,9 @@ class BlogList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var size = MediaQuery.of(context).size;
     ThemeData themeData = Theme.of(context);
-    double bodyMargin = size.width / 10;
+    var size = SizeScreen(context).size;
+    double bodyMargin = SizeScreen(context).bodyMargin;
     return SizedBox(
       height: size.height / 3.5,
       child: ListView.builder(

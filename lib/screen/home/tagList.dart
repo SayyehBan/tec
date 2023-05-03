@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:tec/gen/assets.gen.dart';
 import 'package:tec/model/data/fake_data.dart';
 import 'package:tec/utilities/myColors.dart';
+import 'package:tec/utilities/sizerScreen.dart';
 
 class TagList extends StatelessWidget {
   const TagList({
@@ -9,9 +10,8 @@ class TagList extends StatelessWidget {
   });
   @override
   Widget build(BuildContext context) {
-    var size = MediaQuery.of(context).size;
     ThemeData themeData = Theme.of(context);
-    double bodyMargin = size.width / 10;
+    double bodyMargin = SizeScreen(context).bodyMargin;
     return SizedBox(
       height: 60,
       child: ListView.builder(
