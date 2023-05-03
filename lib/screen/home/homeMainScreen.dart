@@ -6,6 +6,7 @@ import 'package:tec/screen/home/poster.dart';
 import 'package:tec/screen/home/tagList.dart';
 import 'package:tec/screen/home/titleBlog.dart';
 import 'package:tec/utilities/myString.dart';
+import 'package:tec/utilities/sizerScreen.dart';
 
 class HomeMainScreen extends StatelessWidget {
   const HomeMainScreen({
@@ -14,38 +15,44 @@ class HomeMainScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(top: 16),
-      child: Column(
-        children: [
-          const Poster(),
-          const SizedBox(
-            height: 16,
-          ),
+    double bodyMargin = SizeScreen(context).bodyMargin;
+    return SingleChildScrollView(
+      physics: const BouncingScrollPhysics(),
+      child: Padding(
+        padding: const EdgeInsets.only(top: 16),
+        child: Column(
+          children: [
+            const Poster(),
+            const SizedBox(
+              height: 16,
+            ),
 
-          ///tagList
-          const TagList(),
-          const SizedBox(
-            height: 32,
-          ),
-          //See More
-          TitleBlog(
-            image: Assets.icons.bluePen.path,
-            title: myStrings.viewHottestPosts,
-          ),
-          //Blog List
-          const BlogList(),
-          //See More
-          TitleBlog(
-            image: Assets.icons.blueMic.path,
-            title: myStrings.viewHottestPodcasts,
-          ),
-          //Podcasts Blog
-          const PodcastsBlog(),
-          const SizedBox(
-            height: 60,
-          ),
-        ],
+            ///tagList
+            const TagList(),
+            const SizedBox(
+              height: 32,
+            ),
+            //See More
+            TitleBlog(
+              image: Assets.icons.bluePen.path,
+              title: myStrings.viewHottestPosts,
+              right: bodyMargin,
+            ),
+            //Blog List
+            const BlogList(),
+            //See More
+            TitleBlog(
+              image: Assets.icons.blueMic.path,
+              title: myStrings.viewHottestPodcasts,
+              right: bodyMargin,
+            ),
+            //Podcasts Blog
+            const PodcastsBlog(),
+            const SizedBox(
+              height: 60,
+            ),
+          ],
+        ),
       ),
     );
   }

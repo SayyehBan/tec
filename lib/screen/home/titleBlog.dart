@@ -1,17 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:tec/utilities/myColors.dart';
-import 'package:tec/utilities/sizerScreen.dart';
 
 class TitleBlog extends StatelessWidget {
-  const TitleBlog({super.key, required this.image, required this.title});
+  const TitleBlog(
+      {super.key,
+      required this.image,
+      required this.title,
+      required this.right});
   final String image;
   final String title;
+  final double right;
   @override
   Widget build(BuildContext context) {
     ThemeData themeData = Theme.of(context);
-    double bodyMargin = SizeScreen(context).bodyMargin;
+
     return Padding(
-      padding: EdgeInsets.only(right: bodyMargin, bottom: 8),
+      padding: EdgeInsets.only(right: right, bottom: 0),
       child: Row(
         children: [
           ImageIcon(
