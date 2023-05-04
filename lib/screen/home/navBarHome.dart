@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:tec/gen/assets.gen.dart';
-import 'package:tec/screen/profiler/profileScreen.dart';
 import 'package:tec/utilities/myColors.dart';
 import 'package:tec/utilities/sizerScreen.dart';
 
 class NavBarHome extends StatelessWidget {
   const NavBarHome({
     super.key,
+    required this.changePage,
   });
-
+  final Function(int) changePage;
   @override
   Widget build(BuildContext context) {
     double bodyMargin = SizeScreen(context).bodyMargin;
@@ -37,7 +37,7 @@ class NavBarHome extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 IconButton(
-                    onPressed: () {},
+                    onPressed: () => changePage(0),
                     icon: ImageIcon(
                       AssetImage(Assets.icons.home.path),
                       color: Colors.white,
@@ -49,10 +49,7 @@ class NavBarHome extends StatelessWidget {
                       color: Colors.white,
                     )),
                 IconButton(
-                    onPressed: () {
-                      Navigator.of(context).pushReplacement(MaterialPageRoute(
-                          builder: (context) => const ProfileScreen()));
-                    },
+                    onPressed: () => changePage(1),
                     icon: ImageIcon(
                       AssetImage(Assets.icons.user.path),
                       color: Colors.white,
