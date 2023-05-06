@@ -40,7 +40,7 @@ class MyApp extends StatelessWidget {
               }),
               textStyle: MaterialStateProperty.resolveWith((states) {
                 if (states.contains(MaterialState.pressed)) {
-                  return themeData.textTheme.bodyLarge;
+                  return themeData.textTheme.headlineMedium;
                 }
                 return themeData.textTheme.bodyLarge;
               }),
