@@ -1,3 +1,5 @@
+// ignore_for_file: file_names
+
 import 'package:flutter/material.dart';
 import 'package:tec/gen/assets.gen.dart';
 import 'package:tec/model/data/fake_data.dart';
@@ -26,7 +28,7 @@ class TagList extends StatelessWidget {
               decoration: const BoxDecoration(
                   borderRadius: BorderRadius.all(Radius.circular(24)),
                   gradient: LinearGradient(
-                      colors: gradiantColors.tags,
+                      colors: GradiantColors.tags,
                       begin: Alignment.centerRight,
                       end: Alignment.centerLeft)),
               child: Padding(

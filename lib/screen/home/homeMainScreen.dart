@@ -1,3 +1,5 @@
+// ignore_for_file: file_names
+
 import 'package:flutter/material.dart';
 import 'package:tec/gen/assets.gen.dart';
 import 'package:tec/screen/home/blogList.dart';
@@ -35,7 +37,7 @@ class HomeMainScreen extends StatelessWidget {
             //See More
             TitleBlog(
               image: Assets.icons.bluePen.path,
-              title: myStrings.viewHottestPosts,
+              title: MyStrings.viewHottestPosts,
               right: bodyMargin,
             ),
             //Blog List
@@ -43,7 +45,7 @@ class HomeMainScreen extends StatelessWidget {
             //See More
             TitleBlog(
               image: Assets.icons.blueMic.path,
-              title: myStrings.viewHottestPodcasts,
+              title: MyStrings.viewHottestPodcasts,
               right: bodyMargin,
             ),
             //Podcasts Blog

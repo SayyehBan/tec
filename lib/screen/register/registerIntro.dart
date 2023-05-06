@@ -1,7 +1,8 @@
+// ignore_for_file: file_names
+
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:tec/gen/assets.gen.dart';
-import 'package:tec/utilities/myColors.dart';
 import 'package:tec/utilities/myString.dart';
 import 'package:tec/utilities/sizerScreen.dart';
 
@@ -10,8 +11,8 @@ class RegisterIntro extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    ThemeData themeData = Theme.of(context);
     var size = SizeScreen(context).size;
+    ThemeData themeData = Theme.of(context);
     return SafeArea(
         child: Scaffold(
       body: Center(
@@ -25,28 +26,56 @@ class RegisterIntro extends StatelessWidget {
             child: RichText(
               textAlign: TextAlign.center,
               text: TextSpan(
-                  text: myStrings.welcome,
+                  text: MyStrings.welcome,
                   style: themeData.textTheme.headlineMedium),
             ),
           ),
           Padding(
             padding: const EdgeInsets.only(top: 32),
             child: ElevatedButton(
-              onPressed: () {},
-              style: ButtonStyle(
-                backgroundColor: MaterialStateProperty.resolveWith((states) {
-                  if (states.contains(MaterialState.pressed)) {
-                    return solidColors.seeMore;
-                  }
-                  return solidColors.primaryColor;
-                }),
-                textStyle: MaterialStateProperty.resolveWith((states) {
-                  if (states.contains(MaterialState.pressed)) {
-                    return themeData.textTheme.headlineMedium;
-                  }
-                  return themeData.textTheme.headlineMedium;
-                }),
-              ),
+              onPressed: () {
+                showModalBottomSheet(
+                  isScrollControlled: true,
+                  backgroundColor: Colors.transparent,
+                  context: context,
+                  builder: (context) {
+                    return Padding(
+                      padding: EdgeInsets.only(
+                          bottom: MediaQuery.of(context).viewInsets.bottom),
+                      child: Container(
+                        height: size.height / 2,
+                        decoration: const BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.only(
+                                topLeft: Radius.circular(30),
+                                topRight: Radius.circular(30))),
+                        child: Center(
+                            child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text(
+                              MyStrings.insertYourEmail,
+                              style: themeData.textTheme.bodyLarge,
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.all(24),
+                              child: TextField(
+                                textAlign: TextAlign.center,
+                                decoration: InputDecoration(
+                                    hintText: "tecBlog@gmail.com",
+                                    hintStyle:
+                                        themeData.textTheme.displayLarge),
+                              ),
+                            ),
+                            ElevatedButton(
+                                onPressed: () {}, child: const Text("ادامه"))
+                          ],
+                        )),
+                      ),
+                    );
+                  },
+                );
+              },
               child: const Text(
                 'بزن بریم',
               ),

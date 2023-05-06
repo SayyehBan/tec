@@ -1,3 +1,5 @@
+// ignore_for_file: file_names
+
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:tec/gen/assets.gen.dart';
@@ -36,7 +38,7 @@ class _SplashScreenState extends State<SplashScreen> {
                   height: 32,
                 ),
                 const SpinKitFadingCube(
-                  color: solidColors.primaryColor,
+                  color: SolidColors.primaryColor,
                   size: 32.0,
                 )
               ],

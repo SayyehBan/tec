@@ -1,3 +1,5 @@
+// ignore_for_file: file_names
+
 import 'package:flutter/material.dart';
 import 'package:tec/gen/assets.gen.dart';
 import 'package:tec/utilities/myColors.dart';
@@ -21,7 +23,7 @@ class NavBarHome extends StatelessWidget {
         height: size.height / 10,
         decoration: const BoxDecoration(
           gradient: LinearGradient(
-              colors: gradiantColors.bottomNavBackGround,
+              colors: GradiantColors.bottomNavBackGround,
               begin: Alignment.topCenter,
               end: Alignment.bottomCenter),
         ),
@@ -32,7 +34,7 @@ class NavBarHome extends StatelessWidget {
             height: SizeScreen(context).size.height / 8,
             decoration: const BoxDecoration(
                 borderRadius: BorderRadius.all(Radius.circular(18)),
-                gradient: LinearGradient(colors: gradiantColors.bottomNav)),
+                gradient: LinearGradient(colors: GradiantColors.bottomNav)),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [

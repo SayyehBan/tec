@@ -25,7 +25,7 @@ class Poster extends StatelessWidget {
           foregroundDecoration: const BoxDecoration(
               borderRadius: BorderRadius.all(Radius.circular(25)),
               gradient: LinearGradient(
-                  colors: gradiantColors.homePosterCoverGradiant,
+                  colors: GradiantColors.homePosterCoverGradiant,
                   begin: Alignment.topCenter,
                   end: Alignment.bottomCenter)),
         ),

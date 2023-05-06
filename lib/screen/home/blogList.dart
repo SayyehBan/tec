@@ -1,3 +1,6 @@
+// ignore: BlogList
+// ignore_for_file: file_names
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:tec/model/data/fake_data.dart';
@@ -43,7 +46,7 @@ class BlogList extends StatelessWidget {
                       foregroundDecoration: const BoxDecoration(
                           borderRadius: BorderRadius.all(Radius.circular(16)),
                           gradient: LinearGradient(
-                              colors: gradiantColors.blogPost,
+                              colors: GradiantColors.blogPost,
                               begin: Alignment.bottomCenter,
                               end: Alignment.topCenter)),
                     ),

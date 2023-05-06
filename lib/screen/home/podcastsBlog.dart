@@ -1,3 +1,5 @@
+// ignore_for_file: file_names
+
 import 'package:flutter/material.dart';
 import 'package:tec/model/data/fake_data.dart';
 import 'package:tec/utilities/sizerScreen.dart';

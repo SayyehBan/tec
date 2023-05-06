@@ -1,3 +1,5 @@
+// ignore_for_file: file_names
+
 import 'package:flutter/material.dart';
 import 'package:tec/utilities/myColors.dart';
 
@@ -20,7 +22,7 @@ class TitleBlog extends StatelessWidget {
         children: [
           ImageIcon(
             AssetImage(image),
-            color: solidColors.seeMore,
+            color: SolidColors.seeMore,
           ),
           const SizedBox(
             width: 8,

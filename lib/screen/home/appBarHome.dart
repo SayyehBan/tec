@@ -1,3 +1,6 @@
+// ignore: AppBarHome
+// ignore_for_file: file_names
+
 import 'package:flutter/material.dart';
 import 'package:tec/gen/assets.gen.dart';
 import 'package:tec/utilities/myColors.dart';
@@ -16,7 +19,7 @@ class AppBarHome extends StatelessWidget implements PreferredSizeWidget {
     var size = SizeScreen(context).size;
     return AppBar(
       elevation: 0,
-      backgroundColor: solidColors.scafoldBg,
+      backgroundColor: SolidColors.scafoldBg,
       title: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [

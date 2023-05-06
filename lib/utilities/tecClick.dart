@@ -1,6 +1,8 @@
+// ignore: material
+// ignore_for_file: file_names
+
 import 'package:flutter/material.dart';
 import 'package:tec/utilities/myColors.dart';
-import 'package:tec/utilities/myString.dart';
 
 class TecClick extends StatelessWidget {
   const TecClick({
@@ -15,7 +17,7 @@ class TecClick extends StatelessWidget {
     ThemeData themeData = Theme.of(context);
     return InkWell(
       onTap: onTap,
-      splashColor: solidColors.primaryColor,
+      splashColor: SolidColors.primaryColor,
       child: SizedBox(
         height: 40,
         child: Center(

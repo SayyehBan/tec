@@ -1,3 +1,5 @@
+// ignore_for_file: file_names
+
 import 'package:flutter/material.dart';
 import 'package:tec/screen/home/appBarHome.dart';
 import 'package:tec/screen/home/homeMainScreen.dart';
@@ -20,12 +22,11 @@ class _HomeScreenState extends State<HomeScreen> {
         appBar: const AppBarHome(),
         body: Stack(
           children: [
-            Center(
-                child: Positioned.fill(
-                    child: IndexedStack(
+            Positioned.fill(
+                child: IndexedStack(
               index: selectedPageIndex,
               children: const [HomeMainScreen(), ProfileScreen()],
-            ))),
+            )),
             NavBarHome(
               changePage: (int value) {
                 setState(() {
