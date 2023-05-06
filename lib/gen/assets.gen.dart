@@ -24,6 +24,9 @@ class $AssetsIconsGen {
   /// File path: assets/icons/home.png
   AssetGenImage get home => const AssetGenImage('assets/icons/home.png');
 
+  /// File path: assets/icons/tecbot.svg
+  String get tecbot => 'assets/icons/tecbot.svg';
+
   /// File path: assets/icons/user.png
   AssetGenImage get user => const AssetGenImage('assets/icons/user.png');
 
@@ -31,8 +34,8 @@ class $AssetsIconsGen {
   AssetGenImage get writer => const AssetGenImage('assets/icons/writer.png');
 
   /// List of all assets
-  List<AssetGenImage> get values =>
-      [hashtag, blueMic, bluePen, home, user, writer];
+  List<dynamic> get values =>
+      [hashtag, blueMic, bluePen, home, tecbot, user, writer];
 }
 
 class $AssetsImagesGen {

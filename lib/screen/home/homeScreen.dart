@@ -15,10 +15,6 @@ class _HomeScreenState extends State<HomeScreen> {
   var selectedPageIndex = 0;
   @override
   Widget build(BuildContext context) {
-    List<Widget> tectMainScreenPages = const [
-      HomeMainScreen(),
-      ProfileScreen()
-    ];
     return SafeArea(
       child: Scaffold(
         appBar: const AppBarHome(),
@@ -26,7 +22,10 @@ class _HomeScreenState extends State<HomeScreen> {
           children: [
             Center(
                 child: Positioned.fill(
-                    child: tectMainScreenPages[selectedPageIndex])),
+                    child: IndexedStack(
+              index: selectedPageIndex,
+              children: const [HomeMainScreen(), ProfileScreen()],
+            ))),
             NavBarHome(
               changePage: (int value) {
                 setState(() {
