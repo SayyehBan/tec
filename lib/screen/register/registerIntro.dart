@@ -3,9 +3,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:tec/gen/assets.gen.dart';
+import 'package:tec/screen/categories/myCategories.dart';
 import 'package:tec/utilities/myString.dart';
 import 'package:tec/utilities/sizerScreen.dart';
-import 'package:validators/validators.dart';
 
 class RegisterIntro extends StatelessWidget {
   const RegisterIntro({super.key});
@@ -76,7 +76,7 @@ class RegisterIntro extends StatelessWidget {
                   padding: const EdgeInsets.all(24),
                   child: TextField(
                     onChanged: (value) {
-                      print(isEmail(value));
+                      // print(isEmail(value));
                     },
                     textAlign: TextAlign.center,
                     decoration: InputDecoration(
@@ -126,16 +126,19 @@ class RegisterIntro extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.all(24),
                   child: TextField(
-                    onChanged: (value) {
-                      print(isEmail(value));
-                    },
                     textAlign: TextAlign.center,
                     decoration: InputDecoration(
                         hintText: "*****",
                         hintStyle: themeData.textTheme.displayLarge),
                   ),
                 ),
-                ElevatedButton(onPressed: () {}, child: const Text("ادامه"))
+                ElevatedButton(
+                    onPressed: () {
+                      Navigator.of(context).pushReplacement(MaterialPageRoute(
+                        builder: (context) => const MyCategories(),
+                      ));
+                    },
+                    child: const Text("ادامه"))
               ],
             )),
           ),
