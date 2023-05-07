@@ -11,6 +11,7 @@ class MyStrings {
   static const String myFavoritePodcasts = "پادکست های مورد علاقه من";
   static const String logOut = "خروج از حساب کاربری";
   static const String insertYourEmail = "لطفا ایمیلت رو وارد کن";
+  static const String activeCode = "کد فعال سازی رو وارد کن ";
   static const String welcome = """به تک‌بلاگ خوش اومدی
 
 برای ارسال مطلب و پادکست باید حتما 

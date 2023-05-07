@@ -35,7 +35,7 @@ class RegisterIntro extends StatelessWidget {
             padding: const EdgeInsets.only(top: 32),
             child: ElevatedButton(
               onPressed: () {
-                _showModalBottomSheet(context, size, themeData);
+                _showEmailBottomSheet(context, size, themeData);
               },
               child: const Text(
                 'بزن بریم',
@@ -47,7 +47,7 @@ class RegisterIntro extends StatelessWidget {
     ));
   }
 
-  Future<dynamic> _showModalBottomSheet(
+  Future<dynamic> _showEmailBottomSheet(
       BuildContext context, Size size, ThemeData themeData) {
     return showModalBottomSheet(
       isScrollControlled: true,
@@ -81,6 +81,57 @@ class RegisterIntro extends StatelessWidget {
                     textAlign: TextAlign.center,
                     decoration: InputDecoration(
                         hintText: "tecBlog@gmail.com",
+                        hintStyle: themeData.textTheme.displayLarge),
+                  ),
+                ),
+                ElevatedButton(
+                    onPressed: () {
+                      Navigator.pop(context);
+                      _showActiveCodeBottomSheet(context, size, themeData);
+                    },
+                    child: const Text("ادامه"))
+              ],
+            )),
+          ),
+        );
+      },
+    );
+  }
+
+  Future<dynamic> _showActiveCodeBottomSheet(
+      BuildContext context, Size size, ThemeData themeData) {
+    return showModalBottomSheet(
+      isScrollControlled: true,
+      backgroundColor: Colors.transparent,
+      context: context,
+      builder: (context) {
+        return Padding(
+          padding:
+              EdgeInsets.only(bottom: MediaQuery.of(context).viewInsets.bottom),
+          child: Container(
+            height: size.height / 2,
+            decoration: const BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(30),
+                    topRight: Radius.circular(30))),
+            child: Center(
+                child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  MyStrings.activeCode,
+                  style: themeData.textTheme.bodyLarge,
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(24),
+                  child: TextField(
+                    onChanged: (value) {
+                      print(isEmail(value));
+                    },
+                    textAlign: TextAlign.center,
+                    decoration: InputDecoration(
+                        hintText: "*****",
                         hintStyle: themeData.textTheme.displayLarge),
                   ),
                 ),
