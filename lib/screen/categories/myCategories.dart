@@ -1,11 +1,12 @@
 // ignore_for_file: file_names
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:tec/gen/assets.gen.dart';
 import 'package:tec/model/data/fake_data.dart';
-import 'package:tec/model/model/data_models.dart';
 import 'package:tec/screen/categories/mainTagList.dart';
+import 'package:tec/utilities/myColors.dart';
 import 'package:tec/utilities/myString.dart';
 import 'package:tec/utilities/sizerScreen.dart';
 
@@ -85,7 +86,7 @@ class _MyCategoriesState extends State<MyCategories> {
                             return InkWell(
                                 onTap: () {
                                   setState(() {
-                                    HashTagModel(title: tagList[index].title);
+                                    selectedTags.add(tagList[index]);
                                   });
                                 },
                                 child: MainTagList(index: index));
@@ -96,6 +97,7 @@ class _MyCategoriesState extends State<MyCategories> {
                     height: 32,
                   ),
                   Assets.images.downCatArrow.image(scale: 3),
+                  //selected Tag
                   Padding(
                     padding: const EdgeInsets.only(top: 32),
                     child: SizedBox(
@@ -104,16 +106,50 @@ class _MyCategoriesState extends State<MyCategories> {
                         child: GridView.builder(
                           scrollDirection: Axis.horizontal,
                           physics: const BouncingScrollPhysics(),
-                          itemCount: tagList.length,
+                          itemCount: selectedTags.length,
                           shrinkWrap: true,
                           gridDelegate:
                               const SliverGridDelegateWithFixedCrossAxisCount(
                                   mainAxisSpacing: 5,
                                   crossAxisSpacing: 5,
                                   crossAxisCount: 2,
-                                  childAspectRatio: 0.3),
+                                  childAspectRatio: 0.2),
                           itemBuilder: (context, index) {
-                            return MainTagList(index: index);
+                            return Container(
+                              height: 60,
+                              decoration: const BoxDecoration(
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(24)),
+                                  color: SolidColors.surface),
+                              child: Padding(
+                                padding: const EdgeInsets.fromLTRB(16, 8, 8, 8),
+                                child: Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Text(
+                                      selectedTags[index].title,
+                                      style: themeData.textTheme.headlineMedium,
+                                    ),
+                                    const SizedBox(
+                                      width: 8,
+                                    ),
+                                    IconButton(
+                                      icon: const Icon(CupertinoIcons.delete),
+                                      color: Colors.grey,
+                                      onPressed: () {
+                                        setState(() {
+                                          selectedTags
+                                              .remove(selectedTags[index]);
+                                        });
+                                      },
+                                      iconSize: 20,
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            );
+                            ;
                           },
                         )),
                   ),
