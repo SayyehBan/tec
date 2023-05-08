@@ -86,7 +86,10 @@ class _MyCategoriesState extends State<MyCategories> {
                             return InkWell(
                                 onTap: () {
                                   setState(() {
-                                    selectedTags.add(tagList[index]);
+                                    if (!selectedTags
+                                        .contains(tagList[index])) {
+                                      selectedTags.add(tagList[index]);
+                                    }
                                   });
                                 },
                                 child: MainTagList(index: index));
