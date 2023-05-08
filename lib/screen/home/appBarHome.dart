@@ -18,13 +18,17 @@ class AppBarHome extends StatelessWidget implements PreferredSizeWidget {
   Widget build(BuildContext context) {
     var size = SizeScreen(context).size;
     return AppBar(
+      automaticallyImplyLeading: false,
       elevation: 0,
       backgroundColor: SolidColors.scafoldBg,
       title: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
-          const Icon(
-            Icons.menu,
+          IconButton(
+            onPressed: () {
+              Scaffold.of(context).openDrawer();
+            },
+            icon: const Icon(Icons.menu),
             color: Colors.black,
           ),
           Assets.images.logo.image(height: size.height / 13.6),

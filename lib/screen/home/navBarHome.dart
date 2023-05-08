@@ -16,7 +16,7 @@ class NavBarHome extends StatelessWidget {
     double bodyMargin = SizeScreen(context).bodyMargin;
     var size = SizeScreen(context).size;
     return Positioned(
-      bottom: 0,
+      bottom: 8,
       left: 0,
       right: 0,
       child: Container(
@@ -28,8 +28,10 @@ class NavBarHome extends StatelessWidget {
               end: Alignment.bottomCenter),
         ),
         child: Padding(
-          padding:
-              EdgeInsets.only(right: bodyMargin, left: bodyMargin, bottom: 8),
+          padding: EdgeInsets.only(
+            right: bodyMargin,
+            left: bodyMargin,
+          ),
           child: Container(
             height: SizeScreen(context).size.height / 8,
             decoration: const BoxDecoration(

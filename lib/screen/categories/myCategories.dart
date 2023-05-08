@@ -149,7 +149,6 @@ class _MyCategoriesState extends State<MyCategories> {
                                 ),
                               ),
                             );
-                            ;
                           },
                         )),
                   ),
