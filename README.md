@@ -4,13 +4,9 @@ A new Flutter project.
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+پروژه عمومی به نام tecBlog که تو این پروژه از splashScreen اول پروژه استفاده شده و همین طور از منو شناور و داده های موجود به صورت استاتیک هستش و به هیچ جا این اطلاعات وصل نیست یعنی از API داخل این پروژه استفاده نشده ولی از این package ها استفاده شده Flutter Gen که فایل ها رو به صورت شی شناسنه کنه و به نمایش بگذارد.
+تصاویر محیط برنامه
+![2023-05-09_13-52-02](https://github.com/SayyehBan/tec/assets/38620223/22871527-6343-40c6-8094-57357fc63a16)
+![2023-05-09_13-52-14](https://github.com/SayyehBan/tec/assets/38620223/3871edbd-7eda-4921-b144-1abb1cdaa528)
+![2023-05-09_13-52-23](https://github.com/SayyehBan/tec/assets/38620223/c4d491db-64a9-4eae-a491-e54bb92d3821)
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
