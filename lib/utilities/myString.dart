@@ -13,6 +13,9 @@ class MyStrings {
   static const String insertYourEmail = "لطفا ایمیلت رو وارد کن";
   static const String activeCode = "کد فعال سازی رو وارد کن";
   static const String chooseCag = "دسته بندی هایی که دوست داری رو انتخاب کن";
+  static const String shareText = """من عضو تگپلاس هستش تو چطور \n
+  به گیتا هاب بنده سر بزنید https://github.com/SayyehBan
+  """;
   static const String congratulations = """تبریک میگم ، ایمیل با موفقیت تایید شد
 لطفا اطلاعات ثبت نام رو کامل کن""";
   static const String welcome = """به تک‌بلاگ خوش اومدی
