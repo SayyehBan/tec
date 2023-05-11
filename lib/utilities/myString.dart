@@ -1,6 +1,7 @@
 // ignore_for_file: file_names
 
 class MyStrings {
+  static const String tecBlogGitHubUrl = "https://github.com/SayyehBan/tec";
   static const String viewHottestPosts = "مشاهده داغ ترین نوشته ها";
   static const String viewHottestPodcasts = "مشاهده داغ ترین پادکست ها";
   static const String relatedPosts = "نوشته های مرتبط";

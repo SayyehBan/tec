@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 import 'package:share_plus/share_plus.dart';
 import 'package:tec/gen/assets.gen.dart';
 import 'package:tec/utilities/myString.dart';
+import 'package:tec/utilities/utilities.dart';
 import 'package:tec/view/home/appBarHome.dart';
 import 'package:tec/view/home/homeMainScreen.dart';
 import 'package:tec/view/home/navBarHome.dart';
@@ -43,7 +44,11 @@ class HomeScreen extends StatelessWidget {
                 },
                 title: "اشتراک گذاری تک بلاگ"),
             const TecDivider(),
-            TecClick(onTap: () {}, title: "تک‌بلاگ در گیت هاب"),
+            TecClick(
+                onTap: () {
+                  myLaunchUrl(MyStrings.tecBlogGitHubUrl);
+                },
+                title: "تک‌ بلاگ در گیت هاب"),
           ]),
         ),
         appBar: const AppBarHome(),
