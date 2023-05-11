@@ -2,11 +2,11 @@
 
 import 'package:flutter/material.dart';
 import 'package:tec/gen/assets.gen.dart';
-import 'package:tec/screen/home/blogList.dart';
-import 'package:tec/screen/home/podcastsBlog.dart';
-import 'package:tec/screen/home/poster.dart';
-import 'package:tec/screen/home/tagList.dart';
-import 'package:tec/screen/home/titleBlog.dart';
+import 'package:tec/view/home/blogList.dart';
+import 'package:tec/view/home/podcastsBlog.dart';
+import 'package:tec/view/home/poster.dart';
+import 'package:tec/view/home/tagList.dart';
+import 'package:tec/view/home/titleBlog.dart';
 import 'package:tec/utilities/myString.dart';
 import 'package:tec/utilities/sizerScreen.dart';
 

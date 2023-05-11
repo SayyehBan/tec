@@ -2,10 +2,10 @@
 
 import 'package:flutter/material.dart';
 import 'package:tec/gen/assets.gen.dart';
-import 'package:tec/screen/home/appBarHome.dart';
-import 'package:tec/screen/home/homeMainScreen.dart';
-import 'package:tec/screen/home/navBarHome.dart';
-import 'package:tec/screen/profiler/profileScreen.dart';
+import 'package:tec/view/home/appBarHome.dart';
+import 'package:tec/view/home/homeMainScreen.dart';
+import 'package:tec/view/home/navBarHome.dart';
+import 'package:tec/view/profiler/profileScreen.dart';
 import 'package:tec/utilities/myColors.dart';
 import 'package:tec/utilities/sizerScreen.dart';
 import 'package:tec/utilities/tecClick.dart';

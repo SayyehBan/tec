@@ -3,7 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:tec/gen/assets.gen.dart';
-import 'package:tec/screen/categories/myCategories.dart';
+import 'package:tec/view/categories/myCategories.dart';
 import 'package:tec/utilities/myString.dart';
 import 'package:tec/utilities/sizerScreen.dart';
 

@@ -2,7 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:tec/model/data/fake_data.dart';
-import 'package:tec/screen/categories/mainTagList.dart';
+import 'package:tec/view/categories/mainTagList.dart';
 import 'package:tec/utilities/sizerScreen.dart';
 
 class TagList extends StatelessWidget {

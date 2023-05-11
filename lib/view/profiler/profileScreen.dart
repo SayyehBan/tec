@@ -2,7 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:tec/gen/assets.gen.dart';
-import 'package:tec/screen/home/titleBlog.dart';
+import 'package:tec/view/home/titleBlog.dart';
 import 'package:tec/utilities/tecClick.dart';
 import 'package:tec/utilities/tecDivider.dart';
 import 'package:tec/utilities/myString.dart';
