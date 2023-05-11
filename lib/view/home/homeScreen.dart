@@ -1,6 +1,7 @@
-// ignore_for_file: file_names
+// ignore_for_file: file_names, must_be_immutable
 
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:tec/gen/assets.gen.dart';
 import 'package:tec/view/home/appBarHome.dart';
 import 'package:tec/view/home/homeMainScreen.dart';
@@ -11,20 +12,18 @@ import 'package:tec/utilities/sizerScreen.dart';
 import 'package:tec/utilities/tecClick.dart';
 import 'package:tec/utilities/tecDivider.dart';
 
-class HomeScreen extends StatefulWidget {
-  const HomeScreen({super.key});
+final GlobalKey<ScaffoldState> _key = GlobalKey();
 
-  @override
-  State<HomeScreen> createState() => _HomeScreenState();
-}
+class HomeScreen extends StatelessWidget {
+  HomeScreen({super.key});
+  RxInt selectedPageIndex = 0.obs;
 
-class _HomeScreenState extends State<HomeScreen> {
-  var selectedPageIndex = 0;
   @override
   Widget build(BuildContext context) {
     var size = SizeScreen(context).size;
     return SafeArea(
       child: Scaffold(
+        key: _key,
         drawer: Drawer(
           backgroundColor: SolidColors.scafoldBg,
           child: ListView(children: [
@@ -45,15 +44,14 @@ class _HomeScreenState extends State<HomeScreen> {
         body: Stack(
           children: [
             Positioned.fill(
-                child: IndexedStack(
-              index: selectedPageIndex,
-              children: const [HomeMainScreen(), ProfileScreen()],
-            )),
+              child: Obx(() => IndexedStack(
+                    index: selectedPageIndex.value,
+                    children: const [HomeMainScreen(), ProfileScreen()],
+                  )),
+            ),
             NavBarHome(
               changePage: (int value) {
-                setState(() {
-                  selectedPageIndex = value;
-                });
+                selectedPageIndex.value = value;
               },
             ),
           ],
