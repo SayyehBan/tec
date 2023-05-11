@@ -4,8 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:share_plus/share_plus.dart';
 import 'package:tec/gen/assets.gen.dart';
-import 'package:tec/services/dio_service.dart';
-import 'package:tec/utilities/api_constant.dart';
 import 'package:tec/utilities/myString.dart';
 import 'package:tec/utilities/utilities.dart';
 import 'package:tec/view/home/appBarHome.dart';
@@ -25,7 +23,6 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    DioService().getMethod(ApiConstant.getHomeItem);
     var size = SizeScreen(context).size;
     return SafeArea(
       child: Scaffold(
