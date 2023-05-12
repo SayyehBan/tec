@@ -1,32 +1,39 @@
-// ignore_for_file: file_names
+// ignore_for_file: file_names, must_be_immutable
 
 import 'package:flutter/material.dart';
-import 'package:tec/model/data/fake_data.dart';
+import 'package:get/get.dart';
+import 'package:tec/controller/homeScreen_Controller.dart';
+import 'package:tec/utilities/loading.dart';
 import 'package:tec/view/categories/mainTagList.dart';
 import 'package:tec/utilities/sizerScreen.dart';
 
 class TagList extends StatelessWidget {
-  const TagList({
+  TagList({
     super.key,
     required this.scrollDirection,
   });
+  HomeScreenController homeScreenController = Get.put(HomeScreenController());
   final Axis scrollDirection;
   @override
   Widget build(BuildContext context) {
     double bodyMargin = SizeScreen(context).bodyMargin;
-    return SizedBox(
-      height: 60,
-      child: ListView.builder(
-        physics: const BouncingScrollPhysics(),
-        scrollDirection: scrollDirection,
-        itemCount: tagList.length,
-        itemBuilder: (context, index) {
-          return Padding(
-              padding:
-                  EdgeInsets.fromLTRB(0, 8, index == 0 ? bodyMargin : 15, 8),
-              child: MainTagList(index: index));
-        },
-      ),
+    return Obx(
+      () => homeScreenController.loading.value == true
+          ? const Loading()
+          : SizedBox(
+              height: 60,
+              child: ListView.builder(
+                physics: const BouncingScrollPhysics(),
+                scrollDirection: scrollDirection,
+                itemCount: homeScreenController.tagsList.length,
+                itemBuilder: (context, index) {
+                  return Padding(
+                      padding: EdgeInsets.fromLTRB(
+                          0, 8, index == 0 ? bodyMargin : 15, 8),
+                      child: MainTagList(index: index));
+                },
+              ),
+            ),
     );
   }
 }

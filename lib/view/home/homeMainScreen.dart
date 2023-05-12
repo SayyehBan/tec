@@ -36,7 +36,7 @@ class HomeMainScreen extends StatelessWidget {
                     ),
 
                     ///tagList
-                    const TagList(
+                    TagList(
                       scrollDirection: Axis.horizontal,
                     ),
                     const SizedBox(

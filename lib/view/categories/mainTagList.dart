@@ -1,8 +1,9 @@
 // ignore_for_file: file_names
 
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:tec/controller/homeScreen_Controller.dart';
 import 'package:tec/gen/assets.gen.dart';
-import 'package:tec/model/data/fake_data.dart';
 import 'package:tec/utilities/myColors.dart';
 
 class MainTagList extends StatelessWidget {
@@ -35,7 +36,7 @@ class MainTagList extends StatelessWidget {
               width: 8,
             ),
             Text(
-              tagList[index].title,
+              Get.find<HomeScreenController>().tagsList[index].title!,
               style: themeData.textTheme.headlineSmall,
             ),
           ],

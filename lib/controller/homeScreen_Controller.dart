@@ -5,13 +5,13 @@ import 'package:tec/model/model/article_mdel.dart';
 import 'package:tec/model/model/categories_model.dart';
 import 'package:tec/model/model/podcasts_model.dart';
 import 'package:tec/model/model/poster_model.dart';
+import 'package:tec/model/model/tags_model.dart';
 import 'package:tec/services/dio_service.dart';
 import 'package:tec/utilities/api_constant.dart';
-import 'package:tec/view/home/tagList.dart';
 
 class HomeScreenController extends GetxController {
   Rx<PosterModel> poster = PosterModel().obs;
-  RxList<TagList> tagsList = RxList();
+  RxList<TagsModel> tagsList = RxList();
   RxList<ArticleModel> topVisitedList = RxList();
   RxList<PodcastsModel> topPodcasts = RxList();
   RxList<CategoriesModel> categoriesList = RxList();
@@ -31,6 +31,9 @@ class HomeScreenController extends GetxController {
       });
       response.data['top_podcasts'].forEach((e) {
         topPodcasts.add(PodcastsModel.fromJson(e));
+      });
+      response.data['tags'].forEach((e) {
+        tagsList.add(TagsModel.fromJson(e));
       });
       poster.value = PosterModel.fromJson(response.data['poster']);
       loading.value = false;
