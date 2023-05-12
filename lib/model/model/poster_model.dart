@@ -1,3 +1,5 @@
+import 'package:tec/utilities/api_constant.dart';
+
 class PosterModel {
   String? id;
   String? title;
@@ -11,6 +13,6 @@ class PosterModel {
   PosterModel.fromJson(Map<String, dynamic> json) {
     id = json["id"];
     title = json["title"];
-    image = json["image"];
+    image = ApiConstant.hostUrl + json["image"];
   }
 }

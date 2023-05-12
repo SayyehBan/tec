@@ -1,4 +1,5 @@
 class ApiConstant {
-  static const baseUrl = "http://techblog.sasansafari.com/Techblog/api/";
-  static const getHomeItem = "${baseUrl}home/?command=index";
+  static const hostUrl = "http://techblog.sasansafari.com";
+  static const baseUrl = "/Techblog/api/";
+  static const getHomeItem = "$hostUrl${baseUrl}home/?command=index";
 }

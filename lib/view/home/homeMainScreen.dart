@@ -43,7 +43,7 @@ class HomeMainScreen extends StatelessWidget {
               right: bodyMargin,
             ),
             //Blog List
-            const BlogList(),
+            BlogList(),
             //See More
             TitleBlog(
               image: Assets.icons.blueMic.path,
@@ -51,7 +51,7 @@ class HomeMainScreen extends StatelessWidget {
               right: bodyMargin,
             ),
             //Podcasts Blog
-            const PodcastsBlog(),
+            PodcastsBlog(),
             const SizedBox(
               height: 60,
             ),
