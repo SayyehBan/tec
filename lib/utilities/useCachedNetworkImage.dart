@@ -1,7 +1,8 @@
+// ignore_for_file: file_names
+
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:tec/utilities/myColors.dart';
+import 'package:tec/utilities/loading.dart';
 
 class UseCachedNetworkImage extends StatelessWidget {
   const UseCachedNetworkImage({
@@ -20,10 +21,7 @@ class UseCachedNetworkImage extends StatelessWidget {
             borderRadius: const BorderRadius.all(Radius.circular(16)),
             image: DecorationImage(image: imageProvider, fit: BoxFit.cover)),
       ),
-      placeholder: (context, url) => const SpinKitFadingCube(
-        color: SolidColors.primaryColor,
-        size: 32,
-      ),
+      placeholder: (context, url) => const Loading(),
       errorWidget: (context, url, error) => const Icon(
         Icons.image_not_supported_outlined,
         size: 50,

@@ -6,9 +6,9 @@ class PosterModel {
   String? image;
 
   PosterModel({
-    required this.id,
-    required this.title,
-    required this.image,
+    this.id,
+    this.title,
+    this.image,
   });
   PosterModel.fromJson(Map<String, dynamic> json) {
     id = json["id"];

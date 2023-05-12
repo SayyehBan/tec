@@ -57,7 +57,7 @@ class HomeScreen extends StatelessWidget {
             Positioned.fill(
               child: Obx(() => IndexedStack(
                     index: selectedPageIndex.value,
-                    children: const [HomeMainScreen(), ProfileScreen()],
+                    children: [HomeMainScreen(), const ProfileScreen()],
                   )),
             ),
             NavBarHome(

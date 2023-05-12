@@ -10,11 +10,12 @@ import 'package:tec/utilities/api_constant.dart';
 import 'package:tec/view/home/tagList.dart';
 
 class HomeScreenController extends GetxController {
-  late Rx<PosterModel> poster;
+  Rx<PosterModel> poster = PosterModel().obs;
   RxList<TagList> tagsList = RxList();
   RxList<ArticleModel> topVisitedList = RxList();
   RxList<PodcastsModel> topPodcasts = RxList();
   RxList<CategoriesModel> categoriesList = RxList();
+  RxBool loading = false.obs;
   @override
   onInit() {
     super.onInit();
@@ -22,6 +23,7 @@ class HomeScreenController extends GetxController {
   }
 
   getHomeItems() async {
+    loading.value = true;
     var response = await DioService().getMethod(ApiConstant.getHomeItem);
     if (response.statusCode == 200) {
       response.data['top_visited'].forEach((e) {
@@ -30,6 +32,8 @@ class HomeScreenController extends GetxController {
       response.data['top_podcasts'].forEach((e) {
         topPodcasts.add(PodcastsModel.fromJson(e));
       });
+      poster.value = PosterModel.fromJson(response.data['poster']);
+      loading.value = false;
     }
   }
 }
