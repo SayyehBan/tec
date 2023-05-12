@@ -7,6 +7,7 @@ import 'package:get/get.dart';
 import 'package:tec/controller/homeScreen_Controller.dart';
 import 'package:tec/utilities/myColors.dart';
 import 'package:tec/utilities/sizerScreen.dart';
+import 'package:tec/utilities/useCachedNetworkImage.dart';
 
 class BlogList extends StatelessWidget {
   BlogList({
@@ -39,19 +40,15 @@ class BlogList extends StatelessWidget {
                     width: size.width / 2.4,
                     child: Stack(children: [
                       Container(
-                        decoration: BoxDecoration(
-                            borderRadius:
-                                const BorderRadius.all(Radius.circular(16)),
-                            image: DecorationImage(
-                                image: NetworkImage(homeScreenController
-                                    .topVisitedList[index].image!),
-                                fit: BoxFit.cover)),
                         foregroundDecoration: const BoxDecoration(
                             borderRadius: BorderRadius.all(Radius.circular(16)),
                             gradient: LinearGradient(
                                 colors: GradiantColors.blogPost,
                                 begin: Alignment.bottomCenter,
                                 end: Alignment.topCenter)),
+                        child: UseCachedNetworkImage(
+                            url: homeScreenController
+                                .topVisitedList[index].image!),
                       ),
                       Positioned(
                         bottom: 8,

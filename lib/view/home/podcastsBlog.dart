@@ -1,12 +1,10 @@
 // ignore_for_file: file_names, must_be_immutable
 
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:get/get.dart';
 import 'package:tec/controller/homeScreen_Controller.dart';
-import 'package:tec/utilities/myColors.dart';
 import 'package:tec/utilities/sizerScreen.dart';
+import 'package:tec/utilities/useCachedNetworkImage.dart';
 
 class PodcastsBlog extends StatelessWidget {
   PodcastsBlog({
@@ -37,26 +35,9 @@ class PodcastsBlog extends StatelessWidget {
                   child: SizedBox(
                       height: size.height / 5.3,
                       width: size.width / 2.4,
-                      child: CachedNetworkImage(
-                        imageUrl:
-                            homeScreenController.topPodcasts[index].poster!,
-                        imageBuilder: (context, imageProvider) => Container(
-                          decoration: BoxDecoration(
-                              borderRadius:
-                                  const BorderRadius.all(Radius.circular(16)),
-                              image: DecorationImage(
-                                  image: imageProvider, fit: BoxFit.cover)),
-                        ),
-                        placeholder: (context, url) => const SpinKitFadingCube(
-                          color: SolidColors.primaryColor,
-                          size: 32,
-                        ),
-                        errorWidget: (context, url, error) => const Icon(
-                          Icons.image_not_supported_outlined,
-                          size: 50,
-                          color: Colors.grey,
-                        ),
-                      )),
+                      child: UseCachedNetworkImage(
+                          url:
+                              homeScreenController.topPodcasts[index].poster!)),
                 ),
                 const SizedBox(
                   height: 8,
