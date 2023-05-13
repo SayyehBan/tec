@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:tec/gen/fonts.gen.dart';
-import 'package:tec/view/splash/splashScreen.dart';
+import 'package:tec/view/article/articleListScreen.dart';
 import 'package:tec/utilities/myColors.dart';
 
 void main() {
@@ -102,7 +102,7 @@ class MyApp extends StatelessWidget {
       supportedLocales: const [
         Locale('fa'), // Persian
       ],
-      home: const SplashScreen(),
+      home: ArticleListScreen(),
     );
   }
 }
