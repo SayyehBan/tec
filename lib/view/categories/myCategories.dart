@@ -38,7 +38,7 @@ class _MyCategoriesState extends State<MyCategories> {
                     height: 32,
                   ),
                   SvgPicture.asset(
-                    Assets.icons.tecbot,
+                    Assets.images.tcbot,
                     height: 100,
                   ),
                   const SizedBox(
@@ -99,7 +99,7 @@ class _MyCategoriesState extends State<MyCategories> {
                   const SizedBox(
                     height: 32,
                   ),
-                  Assets.images.downCatArrow.image(scale: 3),
+                  Assets.icons.downCatArrow.image(scale: 3),
                   //selected Tag
                   Padding(
                     padding: const EdgeInsets.only(top: 32),

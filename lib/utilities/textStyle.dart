@@ -5,7 +5,7 @@ import 'package:tec/gen/fonts.gen.dart';
 import 'package:tec/utilities/myColors.dart';
 
 TextStyle appBarTextStyle = const TextStyle(
-    fontFamily: FontFamily.bTitr,
+    fontFamily: FontFamily.dana,
     fontSize: 16,
     color: SolidColors.primaryColor,
     fontWeight: FontWeight.w300);

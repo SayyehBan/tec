@@ -166,7 +166,7 @@ List<BlogModel> blogList = [
 ];
 
 Map homePagePosterMap = {
-  "imageAssets": Assets.images.programming.path,
+  "imageAssets": Assets.images.posterTest.path,
   "writer": "مهسا امینی",
   "date": "یک روز پیش",
   "title": "دوازده قدم برنامه نویسی یک دوره",

@@ -5,7 +5,7 @@ import 'package:tec/model/model/article_mdel.dart';
 import 'package:tec/services/dio_service.dart';
 import 'package:tec/utilities/api_constant.dart';
 
-class ArtcileController extends GetxController {
+class ListArtcileController extends GetxController {
   RxList<ArticleModel> articleList = RxList();
   RxBool loading = false.obs;
   @override

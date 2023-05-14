@@ -49,7 +49,7 @@ class NavBarHome extends StatelessWidget {
                 IconButton(
                     onPressed: () {},
                     icon: ImageIcon(
-                      AssetImage(Assets.icons.writer.path),
+                      AssetImage(Assets.icons.writeArticle.path),
                       color: Colors.white,
                     )),
                 IconButton(

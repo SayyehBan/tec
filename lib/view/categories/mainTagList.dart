@@ -28,7 +28,7 @@ class MainTagList extends StatelessWidget {
         child: Row(
           children: [
             ImageIcon(
-              AssetImage(Assets.icons.hashtag.path),
+              AssetImage(Assets.icons.hashtagicon.path),
               color: Colors.white,
               size: 16,
             ),

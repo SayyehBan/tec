@@ -2,14 +2,19 @@
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:tec/controller/article_Controller.dart';
+import 'package:tec/controller/list_article_Controller.dart';
+import 'package:tec/controller/single_article_Controller.dart';
 import 'package:tec/utilities/loading.dart';
 import 'package:tec/utilities/useCachedNetworkImage.dart';
 import 'package:tec/view/article/appBarList.dart';
+import 'package:tec/view/singleScreen/singleScreen.dart';
 
 class ArticleListScreen extends StatelessWidget {
   ArticleListScreen({super.key});
-  ArtcileController artcileController = Get.put(ArtcileController());
+  ListArtcileController listArtcileController =
+      Get.put(ListArtcileController());
+  SingleArtcileController singleArtcileController =
+      Get.put(SingleArtcileController());
   @override
   Widget build(BuildContext context) {
     ThemeData themeData = Theme.of(context);
@@ -20,62 +25,76 @@ class ArticleListScreen extends StatelessWidget {
           padding: const EdgeInsets.all(8.0),
           child: SizedBox(
             child: Obx(
-              () => artcileController.loading.value == true
+              () => listArtcileController.loading.value == true
                   ? const Loading()
                   : ListView.builder(
-                      itemCount: artcileController.articleList.length,
+                      itemCount: listArtcileController.articleList.length,
                       scrollDirection: Axis.vertical,
                       physics: const BouncingScrollPhysics(),
                       itemBuilder: (context, index) {
-                        return Row(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: [
-                            SizedBox(
-                              width: Get.width / 3,
-                              height: Get.height / 6,
-                              child: UseCachedNetworkImage(
-                                  url: artcileController
-                                      .articleList[index].image!),
-                            ),
-                            const SizedBox(
-                              width: 16,
-                            ),
-                            Column(
+                        return GestureDetector(
+                          onTap: () {
+                            singleArtcileController.id.value = int.parse(
+                                listArtcileController.articleList[index].id!);
+                            Get.to(const SingleScreen());
+                          },
+                          child: Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Row(
                               mainAxisAlignment: MainAxisAlignment.start,
                               children: [
                                 SizedBox(
-                                  width: Get.size.width / 2,
-                                  child: Text(
-                                    artcileController.articleList[index].title!,
-                                    style: themeData.textTheme.headlineMedium,
-                                    overflow: TextOverflow.ellipsis,
-                                    maxLines: 2,
-                                  ),
+                                  width: Get.width / 3,
+                                  height: Get.height / 9,
+                                  child: UseCachedNetworkImage(
+                                      url: listArtcileController
+                                          .articleList[index].image!),
                                 ),
                                 const SizedBox(
-                                  height: 16,
+                                  width: 16,
                                 ),
-                                Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
+                                Column(
+                                  mainAxisAlignment: MainAxisAlignment.start,
                                   children: [
-                                    Text(
-                                      artcileController
-                                          .articleList[index].author!,
-                                      style: themeData.textTheme.headlineMedium,
+                                    SizedBox(
+                                      width: Get.size.width / 2,
+                                      child: Text(
+                                        listArtcileController
+                                            .articleList[index].title!,
+                                        style:
+                                            themeData.textTheme.headlineMedium,
+                                        overflow: TextOverflow.ellipsis,
+                                        maxLines: 2,
+                                      ),
                                     ),
                                     const SizedBox(
-                                      width: 20,
+                                      height: 16,
                                     ),
-                                    Text(
-                                      '${artcileController.articleList[index].view!} بازدید',
-                                      style: themeData.textTheme.headlineMedium,
+                                    Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Text(
+                                          listArtcileController
+                                              .articleList[index].author!,
+                                          style: themeData
+                                              .textTheme.headlineMedium,
+                                        ),
+                                        const SizedBox(
+                                          width: 20,
+                                        ),
+                                        Text(
+                                          '${listArtcileController.articleList[index].view!} بازدید',
+                                          style: themeData
+                                              .textTheme.headlineMedium,
+                                        )
+                                      ],
                                     )
                                   ],
                                 )
                               ],
-                            )
-                          ],
+                            ),
+                          ),
                         );
                       },
                     ),

@@ -10,6 +10,6 @@
 class FontFamily {
   FontFamily._();
 
-  /// Font family: B Titr
-  static const String bTitr = 'B Titr';
+  /// Font family: dana
+  static const String dana = 'dana';
 }

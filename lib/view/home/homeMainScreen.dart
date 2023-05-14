@@ -52,7 +52,7 @@ class HomeMainScreen extends StatelessWidget {
                     BlogList(),
                     //See More
                     TitleBlog(
-                      image: Assets.icons.blueMic.path,
+                      image: Assets.icons.microphon.path,
                       title: MyStrings.viewHottestPodcasts,
                       right: bodyMargin,
                     ),

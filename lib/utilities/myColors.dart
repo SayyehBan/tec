@@ -41,6 +41,10 @@ class GradiantColors {
     Color.fromARGB(70, 72, 20, 88),
     Color.fromARGB(100, 28, 20, 81)
   ];
+  static const List<Color> singleAppBarGradiant = [
+    Color.fromARGB(255, 46, 3, 71),
+    Color.fromARGB(0, 0, 0, 0)
+  ];
   static const List<Color> blogPost = [
     Color.fromARGB(0, 255, 255, 255),
     Color.fromARGB(100, 0, 0, 0),

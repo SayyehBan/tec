@@ -21,7 +21,7 @@ class Poster extends StatelessWidget {
             () => Stack(
               children: [
                 Container(
-                  width: size.width / 1.25,
+                  width: size.width / 1.24,
                   height: size.height / 4.2,
                   foregroundDecoration: const BoxDecoration(
                       borderRadius: BorderRadius.all(Radius.circular(25)),
@@ -42,7 +42,7 @@ class Poster extends StatelessWidget {
                       Text(
                         homeScreenController.poster.value.title!,
                         style: themeData.textTheme.displaySmall,
-                        maxLines: 1,
+                        maxLines: 2,
                         overflow: TextOverflow.ellipsis,
                       ),
                     ],
