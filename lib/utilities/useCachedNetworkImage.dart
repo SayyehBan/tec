@@ -9,20 +9,23 @@ class UseCachedNetworkImage extends StatelessWidget {
   const UseCachedNetworkImage({
     super.key,
     required this.url,
+    required this.containerUse,
   });
 
   final String url;
-
+  final bool containerUse;
   @override
   Widget build(BuildContext context) {
     return CachedNetworkImage(
         imageUrl: url,
-        imageBuilder: (context, imageProvider) => Container(
-              decoration: BoxDecoration(
-                  borderRadius: const BorderRadius.all(Radius.circular(16)),
-                  image:
-                      DecorationImage(image: imageProvider, fit: BoxFit.cover)),
-            ),
+        imageBuilder: (context, imageProvider) => containerUse
+            ? Container(
+                decoration: BoxDecoration(
+                    borderRadius: const BorderRadius.all(Radius.circular(16)),
+                    image: DecorationImage(
+                        image: imageProvider, fit: BoxFit.cover)),
+              )
+            : Image(image: imageProvider),
         placeholder: (context, url) => const Loading(),
         errorWidget: (context, url, error) =>
             Assets.images.singlePlaceHolder.image());

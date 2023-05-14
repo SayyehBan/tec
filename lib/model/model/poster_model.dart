@@ -13,6 +13,6 @@ class PosterModel {
   PosterModel.fromJson(Map<String, dynamic> json) {
     id = json["id"];
     title = json["title"];
-    image = ApiConstant.hostUrl + json["image"];
+    image = ApiUrlConstant.hostDlUrl + json["image"];
   }
 }

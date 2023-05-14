@@ -51,8 +51,10 @@ class BlogList extends StatelessWidget {
                                       begin: Alignment.bottomCenter,
                                       end: Alignment.topCenter)),
                               child: UseCachedNetworkImage(
-                                  url: homeScreenController
-                                      .topVisitedList[index].image!),
+                                url: homeScreenController
+                                    .topVisitedList[index].image!,
+                                containerUse: true,
+                              ),
                             ),
                             Positioned(
                               bottom: 8,

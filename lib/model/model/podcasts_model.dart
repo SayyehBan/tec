@@ -23,7 +23,7 @@ class PodcastsModel {
   PodcastsModel.fromJson(Map<String, dynamic> json) {
     id = json["id"];
     title = json["title"];
-    poster = ApiConstant.hostUrl + json["poster"];
+    poster = ApiUrlConstant.hostDlUrl + json["poster"];
     catName = json["cat_name"];
     author = json["author"];
     view = json["view"];

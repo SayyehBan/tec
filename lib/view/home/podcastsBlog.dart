@@ -39,8 +39,10 @@ class PodcastsBlog extends StatelessWidget {
                             height: size.height / 5.3,
                             width: size.width / 2.4,
                             child: UseCachedNetworkImage(
-                                url: homeScreenController
-                                    .topPodcasts[index].poster!)),
+                              url: homeScreenController
+                                  .topPodcasts[index].poster!,
+                              containerUse: true,
+                            )),
                       ),
                       const SizedBox(
                         height: 8,

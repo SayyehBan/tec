@@ -30,7 +30,9 @@ class Poster extends StatelessWidget {
                           begin: Alignment.topCenter,
                           end: Alignment.bottomCenter)),
                   child: UseCachedNetworkImage(
-                      url: homeScreenController.poster.value.image!),
+                    url: homeScreenController.poster.value.image!,
+                    containerUse: true,
+                  ),
                 ),
                 Positioned(
                   bottom: 32,

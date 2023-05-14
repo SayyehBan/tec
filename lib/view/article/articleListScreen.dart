@@ -47,8 +47,10 @@ class ArticleListScreen extends StatelessWidget {
                                   width: Get.width / 3,
                                   height: Get.height / 9,
                                   child: UseCachedNetworkImage(
-                                      url: listArtcileController
-                                          .articleList[index].image!),
+                                    url: listArtcileController
+                                        .articleList[index].image!,
+                                    containerUse: true,
+                                  ),
                                 ),
                                 const SizedBox(
                                   width: 16,

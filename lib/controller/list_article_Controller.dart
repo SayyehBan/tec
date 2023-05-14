@@ -16,7 +16,18 @@ class ListArtcileController extends GetxController {
 
   getArtcileList() async {
     loading.value = true;
-    var response = await DioService().getMethod(ApiConstant.getArtcileList);
+    var response = await DioService().getMethod(ApiUrlConstant.getArticleList);
+    if (response.statusCode == 200) {
+      response.data.forEach((e) {
+        articleList.add(ArticleModel.fromJson(e));
+      });
+      loading.value = false;
+    }
+  }
+
+  getArtcileListWithTagsID() async {
+    loading.value = true;
+    var response = await DioService().getMethod(ApiUrlConstant.getArticleList);
     if (response.statusCode == 200) {
       response.data.forEach((e) {
         articleList.add(ArticleModel.fromJson(e));
