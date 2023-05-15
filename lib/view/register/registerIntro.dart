@@ -1,15 +1,17 @@
-// ignore_for_file: file_names
+// ignore_for_file: file_names, must_be_immutable
 
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get.dart';
+import 'package:tec/controller/register_controller.dart';
 import 'package:tec/gen/assets.gen.dart';
-import 'package:tec/view/categories/myCategories.dart';
 import 'package:tec/utilities/myString.dart';
 import 'package:tec/utilities/sizerScreen.dart';
+import 'package:validators/validators.dart';
 
 class RegisterIntro extends StatelessWidget {
-  const RegisterIntro({super.key});
-
+  RegisterIntro({super.key});
+  RegisterController registerController = Get.put(RegisterController());
   @override
   Widget build(BuildContext context) {
     var size = SizeScreen(context).size;
@@ -75,6 +77,7 @@ class RegisterIntro extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.all(24),
                   child: TextField(
+                    controller: registerController.emialTextEditingController,
                     onChanged: (value) {
                       // print(isEmail(value));
                     },
@@ -86,8 +89,16 @@ class RegisterIntro extends StatelessWidget {
                 ),
                 ElevatedButton(
                     onPressed: () {
-                      Navigator.pop(context);
-                      _showActiveCodeBottomSheet(context, size, themeData);
+                      if (isEmail(registerController
+                              .emialTextEditingController.text) ==
+                          true) {
+                        registerController.register();
+                        Navigator.pop(context);
+                        _showActiveCodeBottomSheet(context, size, themeData);
+                      } else {
+                        ScaffoldMessenger.of(context).showSnackBar(
+                            const SnackBar(content: Text("ایمیل معتبر نیست")));
+                      }
                     },
                     child: const Text("ادامه"))
               ],
@@ -126,6 +137,8 @@ class RegisterIntro extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.all(24),
                   child: TextField(
+                    controller:
+                        registerController.activeCodeTextEditingController,
                     textAlign: TextAlign.center,
                     decoration: InputDecoration(
                         hintText: "*****",
@@ -134,9 +147,10 @@ class RegisterIntro extends StatelessWidget {
                 ),
                 ElevatedButton(
                     onPressed: () {
-                      Navigator.of(context).pushReplacement(MaterialPageRoute(
-                        builder: (context) => const MyCategories(),
-                      ));
+                      registerController.verify();
+                      // Navigator.of(context).pushReplacement(MaterialPageRoute(
+                      //   builder: (context) => const MyCategories(),
+                      // ));
                     },
                     child: const Text("ادامه"))
               ],

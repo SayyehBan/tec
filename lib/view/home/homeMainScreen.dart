@@ -62,9 +62,6 @@ class HomeMainScreen extends StatelessWidget {
                     ),
                     //Podcasts Blog
                     PodcastsBlog(),
-                    const SizedBox(
-                      height: 60,
-                    ),
                   ],
                 ),
         ),
