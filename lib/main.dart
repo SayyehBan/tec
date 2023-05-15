@@ -3,7 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:tec/gen/fonts.gen.dart';
 import 'package:tec/utilities/myColors.dart';
-import 'package:tec/view/article/articleListScreen.dart';
+import 'package:tec/view/splash/splashScreen.dart';
 
 void main() {
   SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
@@ -95,7 +95,7 @@ class MyApp extends StatelessWidget {
           )),
       debugShowCheckedModeBanner: false,
       locale: const Locale('fa'),
-      home: ArticleListScreen(),
+      home: const SplashScreen(),
     );
   }
 }

@@ -7,7 +7,6 @@ import 'package:tec/controller/single_article_Controller.dart';
 import 'package:tec/utilities/loading.dart';
 import 'package:tec/utilities/useCachedNetworkImage.dart';
 import 'package:tec/view/article/appBarList.dart';
-import 'package:tec/view/singleScreen/singleScreen.dart';
 
 class ArticleListScreen extends StatelessWidget {
   ArticleListScreen({super.key});
@@ -34,9 +33,8 @@ class ArticleListScreen extends StatelessWidget {
                       itemBuilder: (context, index) {
                         return GestureDetector(
                           onTap: () {
-                            singleArtcileController.id.value = int.parse(
+                            singleArtcileController.getArticleInfo(
                                 listArtcileController.articleList[index].id!);
-                            Get.to(const SingleScreen());
                           },
                           child: Padding(
                             padding: const EdgeInsets.all(8.0),

@@ -1,12 +1,12 @@
 // ignore_for_file: file_names
 
-import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:tec/model/model/article_info_model.dart';
 import 'package:tec/model/model/article_mdel.dart';
 import 'package:tec/model/model/tags_model.dart';
 import 'package:tec/services/dio_service.dart';
 import 'package:tec/utilities/api_constant.dart';
+import 'package:tec/view/singleScreen/singleScreen.dart';
 
 class SingleArtcileController extends GetxController {
   RxBool loading = false.obs;
@@ -15,7 +15,7 @@ class SingleArtcileController extends GetxController {
   RxList<TagsModel> tagList = RxList();
   RxList<ArticleModel> relatedList = RxList();
 
-  getArticleInfo() async {
+  getArticleInfo(var id) async {
     articleInfoModel = ArticleInfoModel().obs;
 
     loading.value = true;
@@ -37,5 +37,6 @@ class SingleArtcileController extends GetxController {
     response.data['related'].forEach((element) {
       relatedList.add(ArticleModel.fromJson(element));
     });
+    Get.to(SingleScreen());
   }
 }

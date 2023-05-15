@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 import 'package:tec/controller/homeScreen_Controller.dart';
 import 'package:tec/gen/assets.gen.dart';
 import 'package:tec/utilities/loading.dart';
+import 'package:tec/view/article/articleListScreen.dart';
 import 'package:tec/view/home/blogList.dart';
 import 'package:tec/view/home/podcastsBlog.dart';
 import 'package:tec/view/home/poster.dart';
@@ -43,10 +44,13 @@ class HomeMainScreen extends StatelessWidget {
                       height: 32,
                     ),
                     //See More
-                    TitleBlog(
-                      image: Assets.icons.bluePen.path,
-                      title: MyStrings.viewHottestPosts,
-                      right: bodyMargin,
+                    GestureDetector(
+                      onTap: () => Get.to(ArticleListScreen()),
+                      child: TitleBlog(
+                        image: Assets.icons.bluePen.path,
+                        title: MyStrings.viewHottestPosts,
+                        right: bodyMargin,
+                      ),
                     ),
                     //Blog List
                     BlogList(),

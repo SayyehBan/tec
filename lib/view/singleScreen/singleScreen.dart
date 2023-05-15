@@ -3,29 +3,19 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_widget_from_html_core/flutter_widget_from_html_core.dart';
 import 'package:get/get.dart';
-import 'package:tec/controller/list_article_Controller.dart';
 import 'package:tec/controller/single_article_Controller.dart';
 import 'package:tec/gen/assets.gen.dart';
 import 'package:tec/utilities/loading.dart';
 import 'package:tec/utilities/myColors.dart';
 import 'package:tec/utilities/useCachedNetworkImage.dart';
-import 'package:tec/view/article/articleListScreen.dart';
+import 'package:tec/view/home/blogList.dart';
+import 'package:tec/view/singleScreen/tagListArticle.dart';
 
-class SingleScreen extends StatefulWidget {
-  const SingleScreen({super.key});
+class SingleScreen extends StatelessWidget {
+  SingleScreen({super.key});
 
-  @override
-  State<SingleScreen> createState() => _SingleScreenState();
-}
-
-class _SingleScreenState extends State<SingleScreen> {
   SingleArtcileController singleArtcileController =
       Get.put(SingleArtcileController());
-  @override
-  void initState() {
-    super.initState();
-    singleArtcileController.getArticleInfo();
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -134,43 +124,8 @@ class _SingleScreenState extends State<SingleScreen> {
                             const Loading(),
                       ),
                     ),
-                    SizedBox(
-                      height: 35,
-                      child: ListView.builder(
-                        scrollDirection: Axis.horizontal,
-                        itemCount: singleArtcileController.tagList.length,
-                        itemBuilder: (context, index) {
-                          return GestureDetector(
-                            onTap: () async {
-                              await Get.find<ListArtcileController>()
-                                  .getArticleListWithTagsId(
-                                      singleArtcileController
-                                          .tagList[index].id!);
-                              Get.to(ArticleListScreen());
-                            },
-                            child: Padding(
-                              padding: const EdgeInsets.only(left: 8),
-                              child: Container(
-                                height: 30,
-                                decoration: const BoxDecoration(
-                                    borderRadius:
-                                        BorderRadius.all(Radius.circular(24)),
-                                    color: Colors.grey),
-                                child: Padding(
-                                  padding:
-                                      const EdgeInsets.fromLTRB(8, 8, 8, 8),
-                                  child: Text(
-                                    singleArtcileController
-                                        .tagList[index].title!,
-                                    style: themeData.textTheme.headlineMedium,
-                                  ),
-                                ),
-                              ),
-                            ),
-                          );
-                        },
-                      ),
-                    )
+                    TagListArticle(),
+                    BlogList(),
                   ],
                 ),
         ),
