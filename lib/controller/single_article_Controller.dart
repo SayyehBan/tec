@@ -20,11 +20,6 @@ class SingleArtcileController extends GetxController {
 
     loading.value = true;
     var userId = '';
-    debugPrint(
-        '${ApiUrlConstant.baseUrl}article/get.php?command=info&id=$id&user_id=$userId');
-    // ignore: todo
-    //TODO user id is hard code
-
     var response = await DioService().getMethod(
         '${ApiUrlConstant.baseUrl}article/get.php?command=info&id=$id&user_id=$userId');
 
