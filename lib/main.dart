@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
+import 'package:tec/binding/binding.dart';
 import 'package:tec/gen/fonts.gen.dart';
 import 'package:tec/my_http_overrides.dart';
 import 'package:tec/utilities/myColors.dart';
@@ -30,6 +31,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     ThemeData themeData = Theme.of(context);
     return GetMaterialApp(
+      initialBinding: RegisterBinding(),
       theme: ThemeData(
           inputDecorationTheme: InputDecorationTheme(
               border: OutlineInputBorder(

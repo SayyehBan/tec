@@ -8,13 +8,12 @@ import 'package:tec/utilities/myColors.dart';
 import 'package:tec/utilities/sizerScreen.dart';
 
 class NavBarHome extends StatelessWidget {
-  NavBarHome({
+  const NavBarHome({
     super.key,
     required this.changePage,
   });
   final Function(int) changePage;
-  RegisterController registerController =
-      Get.put(RegisterController(), permanent: false);
+
   @override
   Widget build(BuildContext context) {
     double bodyMargin = SizeScreen(context).bodyMargin;
@@ -52,7 +51,7 @@ class NavBarHome extends StatelessWidget {
                     )),
                 IconButton(
                     onPressed: () {
-                      registerController.toggleLogin();
+                      Get.find<RegisterController>().toggleLogin();
                     },
                     icon: ImageIcon(
                       AssetImage(Assets.icons.write.path),
