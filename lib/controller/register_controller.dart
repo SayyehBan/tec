@@ -4,7 +4,7 @@ import 'package:get_storage/get_storage.dart';
 import 'package:tec/services/dio_service.dart';
 import 'package:tec/utilities/api_constant.dart';
 import 'package:tec/utilities/storage_const.dart';
-import 'package:tec/view/categories/myCategories.dart';
+import 'package:tec/view/home/homeMainScreen.dart';
 
 class RegisterController extends GetxController {
   TextEditingController emialTextEditingController = TextEditingController();
@@ -18,6 +18,7 @@ class RegisterController extends GetxController {
     };
     var response =
         await DioService().postMethod(map, ApiUrlConstant.postRegister);
+    return response;
   }
 
   verify() async {
@@ -36,7 +37,7 @@ class RegisterController extends GetxController {
       box.write(userID, response.data['user_id']);
       debugPrint(box.read(token));
       debugPrint(box.read(userID));
-      Get.to(const MyCategories());
+      Get.to(HomeMainScreen());
     } else {
       debugPrint('error');
     }
