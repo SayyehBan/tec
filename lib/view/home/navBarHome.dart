@@ -1,18 +1,20 @@
-// ignore_for_file: file_names
+// ignore_for_file: file_names, must_be_immutable
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:tec/controller/register_controller.dart';
 import 'package:tec/gen/assets.gen.dart';
 import 'package:tec/utilities/myColors.dart';
 import 'package:tec/utilities/sizerScreen.dart';
-import 'package:tec/view/register/registerIntro.dart';
 
 class NavBarHome extends StatelessWidget {
-  const NavBarHome({
+  NavBarHome({
     super.key,
     required this.changePage,
   });
   final Function(int) changePage;
+  RegisterController registerController =
+      Get.put(RegisterController(), permanent: false);
   @override
   Widget build(BuildContext context) {
     double bodyMargin = SizeScreen(context).bodyMargin;
@@ -50,7 +52,7 @@ class NavBarHome extends StatelessWidget {
                     )),
                 IconButton(
                     onPressed: () {
-                      Get.to(RegisterIntro());
+                      registerController.toggleLogin();
                     },
                     icon: ImageIcon(
                       AssetImage(Assets.icons.write.path),

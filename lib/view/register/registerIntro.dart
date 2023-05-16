@@ -96,8 +96,7 @@ class RegisterIntro extends StatelessWidget {
                         Navigator.pop(context);
                         _showActiveCodeBottomSheet(context, size, themeData);
                       } else {
-                        ScaffoldMessenger.of(context).showSnackBar(
-                            const SnackBar(content: Text("ایمیل معتبر نیست")));
+                        Get.snackbar('خطا', 'ایمیل معتبر نیست');
                       }
                     },
                     child: const Text("ادامه"))

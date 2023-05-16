@@ -9,13 +9,15 @@ import 'package:tec/my_http_overrides.dart';
 import 'package:tec/utilities/myColors.dart';
 import 'package:tec/view/splash/splashScreen.dart';
 
-Future main() async {
+void main() async {
   HttpOverrides.global = MyHttpOverrides();
+
   SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
-      statusBarColor: SolidColors.statusBarColor,
-      statusBarIconBrightness: Brightness.dark,
-      systemNavigationBarColor: SolidColors.systemNavigationBarColor,
-      systemNavigationBarIconBrightness: Brightness.dark));
+    statusBarColor: SolidColors.statusBarColor,
+    statusBarIconBrightness: Brightness.dark,
+    systemNavigationBarColor: SolidColors.systemNavigationBarColor,
+    systemNavigationBarIconBrightness: Brightness.dark,
+  ));
   await GetStorage.init();
   runApp(const MyApp());
 }
