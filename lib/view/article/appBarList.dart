@@ -1,6 +1,7 @@
 // ignore_for_file: file_names
 
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:tec/utilities/myColors.dart';
 import 'package:tec/utilities/textStyle.dart';
 
@@ -23,15 +24,20 @@ PreferredSize appBarList(String title) {
             ),
           )
         ],
-        leading: Padding(
-          padding: const EdgeInsets.only(right: 16),
-          child: Container(
-            height: 40,
-            width: 40,
-            decoration: BoxDecoration(
-                color: SolidColors.primaryColor.withBlue(100),
-                shape: BoxShape.circle),
-            child: const Icon(Icons.keyboard_arrow_right_rounded),
+        leading: GestureDetector(
+          onTap: () {
+            Get.back();
+          },
+          child: Padding(
+            padding: const EdgeInsets.only(right: 16),
+            child: Container(
+              height: 40,
+              width: 40,
+              decoration: BoxDecoration(
+                  color: SolidColors.primaryColor.withBlue(100),
+                  shape: BoxShape.circle),
+              child: const Icon(Icons.keyboard_arrow_right_rounded),
+            ),
           ),
         ),
       ),
