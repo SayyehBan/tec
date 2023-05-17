@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:tec/controller/list_article_Controller.dart';
 import 'package:tec/controller/single_article_Controller.dart';
+import 'package:tec/main.dart';
 import 'package:tec/utilities/loading.dart';
 import 'package:tec/utilities/useCachedNetworkImage.dart';
 import 'package:tec/view/article/appBarList.dart';
@@ -12,8 +13,7 @@ class ArticleListScreen extends StatelessWidget {
   ArticleListScreen({super.key});
   ListArtcileController listArtcileController =
       Get.put(ListArtcileController());
-  SingleArtcileController singleArtcileController =
-      Get.put(SingleArtcileController());
+  var singleArtcileController = Get.find<SingleArtcileController>();
   @override
   Widget build(BuildContext context) {
     ThemeData themeData = Theme.of(context);
@@ -32,9 +32,10 @@ class ArticleListScreen extends StatelessWidget {
                       physics: const BouncingScrollPhysics(),
                       itemBuilder: (context, index) {
                         return GestureDetector(
-                          onTap: () {
-                            singleArtcileController.getArticleInfo(
+                          onTap: () async {
+                            await singleArtcileController.getArticleInfo(
                                 listArtcileController.articleList[index].id!);
+                            Get.toNamed(routSingleScreen);
                           },
                           child: Padding(
                             padding: const EdgeInsets.all(8.0),
