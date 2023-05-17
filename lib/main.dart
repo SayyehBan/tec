@@ -114,8 +114,8 @@ class MyApp extends StatelessWidget {
           bodyMedium: TextStyle(
               fontFamily: FontFamily.dana,
               fontSize: 14,
-              color: Colors.green,
-              fontWeight: FontWeight.w700),
+              color: Colors.black,
+              fontWeight: FontWeight.w300),
           bodyLarge: TextStyle(
               fontFamily: FontFamily.dana,
               fontSize: 14,
