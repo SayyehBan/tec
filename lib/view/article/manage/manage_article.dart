@@ -2,22 +2,37 @@
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:tec/controller/register_controller.dart';
-import 'package:tec/utilities/sizerScreen.dart';
+import 'package:tec/controller/article/manage_article_controller.dart';
+import 'package:tec/utilities/loading.dart';
 import 'package:tec/view/article/appBarList.dart';
+import 'package:tec/view/article/manage/articalListManage.dart';
 import 'package:tec/view/article/manage/articleEmptyState.dart';
 
 class ManageArticles extends StatelessWidget {
   ManageArticles({super.key});
-  var registerController = Get.find<RegisterController>();
+  var manageArticleController = Get.find<ManageArticleController>();
   @override
   Widget build(BuildContext context) {
-    var size = SizeScreen(context).size;
-    ThemeData themeData = Theme.of(context);
     return SafeArea(
         child: Scaffold(
       appBar: appBarList("مدیریت مقتله ها"),
-      body: const ArticleEmptyState(),
+      body: Obx(() => manageArticleController.loading.value
+          ? const Loading()
+          : manageArticleController.articleList.isNotEmpty
+              ? ArticalListManage(
+                  manageArticleController: manageArticleController)
+              : const ArticleEmptyState()),
+      bottomNavigationBar: Padding(
+        padding: const EdgeInsets.all(8),
+        child: ElevatedButton(
+          style: ButtonStyle(
+              fixedSize: MaterialStateProperty.all(Size(Get.width / 3, 56))),
+          onPressed: () {},
+          child: const Text(
+            'بریم برای نوشتن یه مقاله باحال',
+          ),
+        ),
+      ),
     ));
   }
 }

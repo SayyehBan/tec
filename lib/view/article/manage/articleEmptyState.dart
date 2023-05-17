@@ -27,15 +27,6 @@ class ArticleEmptyState extends StatelessWidget {
                 style: themeData.textTheme.headlineMedium),
           ),
         ),
-        Padding(
-          padding: const EdgeInsets.only(top: 32),
-          child: ElevatedButton(
-            onPressed: () {},
-            child: const Text(
-              'بریم برای نوشتن یه مقاله باحال',
-            ),
-          ),
-        ),
       ]),
     );
   }

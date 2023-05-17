@@ -17,8 +17,6 @@ class ListArtcileController extends GetxController {
 
   getList() async {
     loading.value = true;
-    // ignore: todo
-    //TODO get userid from getStorage ApiConstant.getArticleList+userid
     var response = await DioService().getMethod(ApiUrlConstant.getArticleList);
 
     if (response.statusCode == 200) {
