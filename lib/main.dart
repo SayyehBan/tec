@@ -8,8 +8,9 @@ import 'package:tec/binding/binding.dart';
 import 'package:tec/gen/fonts.gen.dart';
 import 'package:tec/my_http_overrides.dart';
 import 'package:tec/utilities/myColors.dart';
+import 'package:tec/view/article/manage/manage_article.dart';
 import 'package:tec/view/home/homeScreen.dart';
-import 'package:tec/view/singleScreen/singleScreen.dart';
+import 'package:tec/view/article/singleScreen/singleScreen.dart';
 import 'package:tec/view/splash/splashScreen.dart';
 
 void main() async {
@@ -38,13 +39,17 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       getPages: [
         GetPage(
-            name: routeHomeScreen,
+            name: NamedRoute.routeHomeScreen,
             page: () => HomeScreen(),
             binding: RegisterBinding()),
         GetPage(
-            name: routSingleScreen,
+            name: NamedRoute.routeSingleScreen,
             page: () => SingleScreen(),
             binding: ArticleBinding()),
+        GetPage(
+            name: NamedRoute.routeManageArticles,
+            page: () => ManageArticles(),
+            binding: ArticleManagerBinding()),
       ],
       home: const SplashScreen(),
     );
@@ -125,5 +130,8 @@ class MyApp extends StatelessWidget {
   }
 }
 
-String routeHomeScreen = "/HomeScreen";
-String routSingleScreen = "/SingleScreen";
+class NamedRoute {
+  static String routeHomeScreen = "/HomeScreen";
+  static String routeSingleScreen = "/SingleScreen";
+  static String routeManageArticles = "/ManageArticles";
+}

@@ -3,13 +3,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_widget_from_html_core/flutter_widget_from_html_core.dart';
 import 'package:get/get.dart';
-import 'package:tec/controller/single_article_Controller.dart';
+import 'package:tec/controller/article/single_article_Controller.dart';
 import 'package:tec/gen/assets.gen.dart';
 import 'package:tec/utilities/loading.dart';
 import 'package:tec/utilities/myColors.dart';
 import 'package:tec/utilities/useCachedNetworkImage.dart';
 import 'package:tec/view/home/blogList.dart';
-import 'package:tec/view/singleScreen/tagListArticle.dart';
+import 'package:tec/view/article/singleScreen/tagListArticle.dart';
 
 class SingleScreen extends StatelessWidget {
   SingleScreen({super.key});

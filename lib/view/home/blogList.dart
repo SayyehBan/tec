@@ -5,7 +5,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:tec/controller/homeScreen_Controller.dart';
-import 'package:tec/controller/single_article_Controller.dart';
+import 'package:tec/controller/article/single_article_Controller.dart';
 import 'package:tec/utilities/loading.dart';
 import 'package:tec/utilities/myColors.dart';
 import 'package:tec/utilities/sizerScreen.dart';

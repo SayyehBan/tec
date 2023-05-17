@@ -1,3 +1,5 @@
+// ignore_for_file: invalid_return_type_for_catch_error
+
 import 'package:dio/dio.dart';
 import 'package:dio/dio.dart' as dio_service;
 import 'package:flutter/foundation.dart';
@@ -11,6 +13,11 @@ class DioService {
             options: Options(responseType: ResponseType.json, method: 'Get'))
         .then((response) {
       return response;
+    }).catchError((error) {
+      if (error is DioError) {
+        return error.response!;
+      }
+      return null;
     });
   }
 
@@ -25,6 +32,11 @@ class DioService {
       debugPrint(value.data.toString());
       debugPrint(value.statusCode.toString());
       return value;
+    }).catchError((error) {
+      if (error is DioError) {
+        return error.response!;
+      }
+      return null;
     });
   }
 }

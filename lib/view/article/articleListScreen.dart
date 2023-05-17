@@ -2,8 +2,8 @@
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:tec/controller/list_article_Controller.dart';
-import 'package:tec/controller/single_article_Controller.dart';
+import 'package:tec/controller/article/list_article_Controller.dart';
+import 'package:tec/controller/article/single_article_Controller.dart';
 import 'package:tec/main.dart';
 import 'package:tec/utilities/loading.dart';
 import 'package:tec/utilities/useCachedNetworkImage.dart';
@@ -35,7 +35,7 @@ class ArticleListScreen extends StatelessWidget {
                           onTap: () async {
                             await singleArtcileController.getArticleInfo(
                                 listArtcileController.articleList[index].id!);
-                            Get.toNamed(routSingleScreen);
+                            Get.toNamed(NamedRoute.routeSingleScreen);
                           },
                           child: Padding(
                             padding: const EdgeInsets.all(8.0),

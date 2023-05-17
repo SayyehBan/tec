@@ -2,8 +2,8 @@
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:tec/controller/list_article_Controller.dart';
-import 'package:tec/controller/single_article_Controller.dart';
+import 'package:tec/controller/article/list_article_Controller.dart';
+import 'package:tec/controller/article/single_article_Controller.dart';
 import 'package:tec/utilities/loading.dart';
 import 'package:tec/view/article/articleListScreen.dart';
 

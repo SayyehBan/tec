@@ -3,6 +3,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:tec/gen/assets.gen.dart';
+import 'package:tec/main.dart';
 import 'package:tec/services/dio_service.dart';
 import 'package:tec/utilities/api_constant.dart';
 import 'package:tec/utilities/storage_const.dart';
@@ -100,7 +101,7 @@ class RegisterController extends GetxController {
             children: [
               GestureDetector(
                 onTap: () {
-                  debugPrint("مدیرییت مقاله");
+                  Get.toNamed(NamedRoute.routeManageArticles);
                 },
                 child: Container(
                   color: Colors.white,
