@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:tec/controller/article/manage_article_controller.dart';
+import 'package:tec/main.dart';
 import 'package:tec/utilities/loading.dart';
 import 'package:tec/view/article/appBarList.dart';
 import 'package:tec/view/article/manage/articalListManage.dart';
@@ -27,7 +28,9 @@ class ManageArticles extends StatelessWidget {
         child: ElevatedButton(
           style: ButtonStyle(
               fixedSize: MaterialStateProperty.all(Size(Get.width / 3, 56))),
-          onPressed: () {},
+          onPressed: () {
+            Get.toNamed(NamedRoute.routeSingleManagmentArticleScreen);
+          },
           child: const Text(
             'بریم برای نوشتن یه مقاله باحال',
           ),

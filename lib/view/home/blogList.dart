@@ -6,9 +6,9 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:tec/controller/homeScreen_Controller.dart';
 import 'package:tec/controller/article/single_article_Controller.dart';
+import 'package:tec/utilities/dimens.dart';
 import 'package:tec/utilities/loading.dart';
 import 'package:tec/utilities/myColors.dart';
-import 'package:tec/utilities/sizerScreen.dart';
 import 'package:tec/utilities/useCachedNetworkImage.dart';
 
 class BlogList extends StatelessWidget {
@@ -21,10 +21,8 @@ class BlogList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     ThemeData themeData = Theme.of(context);
-    var size = SizeScreen(context).size;
-    double bodyMargin = SizeScreen(context).bodyMargin;
     return SizedBox(
-      height: size.height / 3.5,
+      height: Get.size.height / 3.5,
       child: homeScreenController.loading.value == true
           ? const Loading()
           : Obx(
@@ -42,13 +40,13 @@ class BlogList extends StatelessWidget {
                         },
                         child: Padding(
                           padding: EdgeInsets.only(
-                              right: index == 0 ? bodyMargin : 15,
-                              left: index == 0 ? bodyMargin : 15),
+                              right: index == 0 ? Dimens.bodyMargin : 15,
+                              left: index == 0 ? Dimens.bodyMargin : 15),
 
                           ///BlogItem
                           child: SizedBox(
-                            height: size.height / 5.3,
-                            width: size.width / 2.4,
+                            height: Get.size.height / 5.3,
+                            width: Get.size.width / 2.4,
                             child: Stack(children: [
                               Container(
                                 foregroundDecoration: const BoxDecoration(
@@ -106,7 +104,7 @@ class BlogList extends StatelessWidget {
                         height: 8,
                       ),
                       SizedBox(
-                          width: size.width / 2.4,
+                          width: Get.size.width / 2.4,
                           child: Text(
                             homeScreenController.topVisitedList[index].title!,
                             style: themeData.textTheme.headlineMedium,

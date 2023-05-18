@@ -4,8 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:tec/controller/register_controller.dart';
 import 'package:tec/gen/assets.gen.dart';
+import 'package:tec/utilities/dimens.dart';
 import 'package:tec/utilities/myColors.dart';
-import 'package:tec/utilities/sizerScreen.dart';
 
 class NavBarHome extends StatelessWidget {
   const NavBarHome({
@@ -16,14 +16,12 @@ class NavBarHome extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double bodyMargin = SizeScreen(context).bodyMargin;
-    var size = SizeScreen(context).size;
     return Positioned(
       bottom: 8,
       left: 0,
       right: 0,
       child: Container(
-        height: size.height / 10,
+        height: Get.size.height / 10,
         decoration: const BoxDecoration(
           gradient: LinearGradient(
               colors: GradiantColors.bottomNavBackGround,
@@ -32,11 +30,11 @@ class NavBarHome extends StatelessWidget {
         ),
         child: Padding(
           padding: EdgeInsets.only(
-            right: bodyMargin,
-            left: bodyMargin,
+            right: Dimens.bodyMargin,
+            left: Dimens.bodyMargin,
           ),
           child: Container(
-            height: SizeScreen(context).size.height / 8,
+            height: Get.size.height / Dimens.small,
             decoration: const BoxDecoration(
                 borderRadius: BorderRadius.all(Radius.circular(18)),
                 gradient: LinearGradient(colors: GradiantColors.bottomNav)),

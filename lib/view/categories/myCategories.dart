@@ -5,10 +5,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:tec/gen/assets.gen.dart';
 import 'package:tec/model/data/fake_data.dart';
+import 'package:tec/utilities/dimens.dart';
 import 'package:tec/view/categories/mainTagList.dart';
 import 'package:tec/utilities/myColors.dart';
 import 'package:tec/utilities/myString.dart';
-import 'package:tec/utilities/sizerScreen.dart';
 
 class MyCategories extends StatefulWidget {
   const MyCategories({super.key});
@@ -20,15 +20,14 @@ class MyCategories extends StatefulWidget {
 class _MyCategoriesState extends State<MyCategories> {
   @override
   Widget build(BuildContext context) {
-    // var size = SizeScreen(context).size;
-    var bodyMargin = SizeScreen(context).bodyMargin;
     ThemeData themeData = Theme.of(context);
     return SafeArea(
         child: Scaffold(
       body: SingleChildScrollView(
         physics: const BouncingScrollPhysics(),
         child: Padding(
-          padding: EdgeInsets.only(right: bodyMargin, left: bodyMargin),
+          padding: EdgeInsets.only(
+              right: Dimens.bodyMargin, left: Dimens.bodyMargin),
           child: Center(
             child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,

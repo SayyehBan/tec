@@ -9,6 +9,7 @@ import 'package:tec/gen/fonts.gen.dart';
 import 'package:tec/my_http_overrides.dart';
 import 'package:tec/utilities/myColors.dart';
 import 'package:tec/view/article/manage/manage_article.dart';
+import 'package:tec/view/article/singleManagment/singleManagmentScreen.dart';
 import 'package:tec/view/home/homeScreen.dart';
 import 'package:tec/view/article/singleScreen/singleScreen.dart';
 import 'package:tec/view/splash/splashScreen.dart';
@@ -49,6 +50,10 @@ class MyApp extends StatelessWidget {
         GetPage(
             name: NamedRoute.routeManageArticles,
             page: () => ManageArticles(),
+            binding: ArticleManagerBinding()),
+        GetPage(
+            name: NamedRoute.routeSingleManagmentArticleScreen,
+            page: () => SingleManagmentArticleScreen(),
             binding: ArticleManagerBinding()),
       ],
       home: const SplashScreen(),
@@ -134,4 +139,6 @@ class NamedRoute {
   static String routeHomeScreen = "/HomeScreen";
   static String routeSingleScreen = "/SingleScreen";
   static String routeManageArticles = "/ManageArticles";
+  static String routeSingleManagmentArticleScreen =
+      "/SingleManagmentArticleScreen";
 }

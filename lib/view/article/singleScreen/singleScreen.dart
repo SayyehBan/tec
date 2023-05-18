@@ -50,30 +50,31 @@ class SingleScreen extends StatelessWidget {
                                         GradiantColors.singleAppBarGradiant)),
                             child: Row(
                                 mainAxisAlignment: MainAxisAlignment.end,
-                                children: const [
-                                  SizedBox(
+                                children: [
+                                  const SizedBox(
                                     width: 20,
                                   ),
-                                  Icon(
-                                    Icons.arrow_back,
+                                  IconButton(
+                                    onPressed: () => Get.back(),
+                                    icon: const Icon(Icons.arrow_back),
                                     color: Colors.white,
-                                    size: 24,
+                                    iconSize: 24,
                                   ),
-                                  Expanded(child: SizedBox()),
-                                  Icon(
+                                  const Expanded(child: SizedBox()),
+                                  const Icon(
                                     Icons.bookmark_border_rounded,
                                     color: Colors.white,
                                     size: 24,
                                   ),
-                                  SizedBox(
+                                  const SizedBox(
                                     width: 20,
                                   ),
-                                  Icon(
+                                  const Icon(
                                     Icons.share,
                                     color: Colors.white,
                                     size: 24,
                                   ),
-                                  SizedBox(
+                                  const SizedBox(
                                     width: 20,
                                   ),
                                 ]),

@@ -5,7 +5,6 @@ import 'package:get/get.dart';
 import 'package:tec/controller/homeScreen_Controller.dart';
 import 'package:tec/utilities/loading.dart';
 import 'package:tec/utilities/myColors.dart';
-import 'package:tec/utilities/sizerScreen.dart';
 import 'package:tec/utilities/useCachedNetworkImage.dart';
 
 class Poster extends StatelessWidget {
@@ -14,15 +13,14 @@ class Poster extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     ThemeData themeData = Theme.of(context);
-    var size = SizeScreen(context).size;
     return homeScreenController.loading.value == true
         ? const Loading()
         : Obx(
             () => Stack(
               children: [
                 Container(
-                  width: size.width / 1.24,
-                  height: size.height / 4.2,
+                  width: Get.size.width / 1.24,
+                  height: Get.size.height / 4.2,
                   foregroundDecoration: const BoxDecoration(
                       borderRadius: BorderRadius.all(Radius.circular(25)),
                       gradient: LinearGradient(

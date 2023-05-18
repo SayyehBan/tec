@@ -2,9 +2,9 @@
 // ignore_for_file: file_names
 
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:tec/gen/assets.gen.dart';
 import 'package:tec/utilities/myColors.dart';
-import 'package:tec/utilities/sizerScreen.dart';
 
 class AppBarHome extends StatelessWidget implements PreferredSizeWidget {
   const AppBarHome({
@@ -16,7 +16,6 @@ class AppBarHome extends StatelessWidget implements PreferredSizeWidget {
 
   @override
   Widget build(BuildContext context) {
-    var size = SizeScreen(context).size;
     return AppBar(
       automaticallyImplyLeading: false,
       elevation: 0,
@@ -31,7 +30,7 @@ class AppBarHome extends StatelessWidget implements PreferredSizeWidget {
             icon: const Icon(Icons.menu),
             color: Colors.black,
           ),
-          Assets.images.logo.image(height: size.height / 13.6),
+          Assets.images.logo.image(height: Get.size.height / 13.6),
           const Icon(
             Icons.search,
             color: Colors.black,

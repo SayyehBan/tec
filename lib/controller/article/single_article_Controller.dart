@@ -11,12 +11,13 @@ import 'package:tec/view/article/singleScreen/singleScreen.dart';
 class SingleArtcileController extends GetxController {
   RxBool loading = false.obs;
   RxInt id = RxInt(0);
-  Rx<ArticleInfoModel> articleInfoModel = ArticleInfoModel().obs;
+  Rx<ArticleInfoModel> articleInfoModel =
+      ArticleInfoModel(null, null, null).obs;
   RxList<TagsModel> tagList = RxList();
   RxList<ArticleModel> relatedList = RxList();
 
   getArticleInfo(var id) async {
-    articleInfoModel = ArticleInfoModel().obs;
+    articleInfoModel = ArticleInfoModel(null, null, null).obs;
 
     loading.value = true;
     var userId = '';

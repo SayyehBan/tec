@@ -11,7 +11,6 @@ import 'package:tec/view/home/homeMainScreen.dart';
 import 'package:tec/view/home/navBarHome.dart';
 import 'package:tec/view/profiler/profileScreen.dart';
 import 'package:tec/utilities/myColors.dart';
-import 'package:tec/utilities/sizerScreen.dart';
 import 'package:tec/utilities/tecClick.dart';
 import 'package:tec/utilities/tecDivider.dart';
 
@@ -23,7 +22,6 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var size = SizeScreen(context).size;
     return SafeArea(
       child: Scaffold(
         key: _key,
@@ -32,7 +30,7 @@ class HomeScreen extends StatelessWidget {
           child: ListView(children: [
             DrawerHeader(
                 child: Center(
-              child: Assets.images.logo.image(height: size.height / 13.6),
+              child: Assets.images.logo.image(height: Get.size.height / 13.6),
             )),
             TecClick(onTap: () {}, title: "پروفایل کاربری"),
             const TecDivider(),

@@ -6,7 +6,6 @@ import 'package:get/get.dart';
 import 'package:tec/controller/register_controller.dart';
 import 'package:tec/gen/assets.gen.dart';
 import 'package:tec/utilities/myString.dart';
-import 'package:tec/utilities/sizerScreen.dart';
 import 'package:validators/validators.dart';
 
 class RegisterIntro extends StatelessWidget {
@@ -14,7 +13,6 @@ class RegisterIntro extends StatelessWidget {
   var registerController = Get.find<RegisterController>();
   @override
   Widget build(BuildContext context) {
-    var size = SizeScreen(context).size;
     ThemeData themeData = Theme.of(context);
     return SafeArea(
         child: Scaffold(
@@ -37,7 +35,7 @@ class RegisterIntro extends StatelessWidget {
             padding: const EdgeInsets.only(top: 32),
             child: ElevatedButton(
               onPressed: () {
-                _showEmailBottomSheet(context, size, themeData);
+                _showEmailBottomSheet(context, Get.size, themeData);
               },
               child: const Text(
                 'بزن بریم',
