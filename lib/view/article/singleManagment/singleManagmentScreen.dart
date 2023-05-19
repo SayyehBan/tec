@@ -22,6 +22,34 @@ class SingleManagmentArticleScreen extends StatelessWidget {
   var manageArticleController = Get.find<ManageArticleController>();
   final FilePickerController _filePickerController =
       Get.put(FilePickerController());
+  geTitle() {
+    manageArticleController.titleTextEditingController.text =
+        manageArticleController.articleInfoModel.value.title!;
+    Get.defaultDialog(
+        title: "عنوان مقاله",
+        titleStyle: const TextStyle(color: SolidColors.scafoldBg),
+        content: TextField(
+          controller: manageArticleController.titleTextEditingController,
+          keyboardType: TextInputType.text,
+          style: const TextStyle(color: SolidColors.colorTitle),
+          decoration: const InputDecoration(hintText: "اینجا بنویس"),
+        ),
+        backgroundColor: SolidColors.primaryColor,
+        radius: 8,
+        confirm: ElevatedButton(
+            onPressed: () {
+              if (manageArticleController
+                      .titleTextEditingController.text.isNotEmpty ||
+                  manageArticleController.titleTextEditingController.text !=
+                      '') {
+                manageArticleController.updateTitle();
+              }
+
+              Get.back();
+            },
+            child: const Text('ثبت')));
+  }
+
   @override
   Widget build(BuildContext context) {
     ThemeData themeData = Theme.of(context);
@@ -112,10 +140,15 @@ class SingleManagmentArticleScreen extends StatelessWidget {
               const SizedBox(
                 height: 24,
               ),
-              TitleBlog(
-                image: Assets.icons.bluePen.path,
-                title: "ویرایش عنوان مقاله",
-                right: Dimens.halfBodyMargin,
+              GestureDetector(
+                onTap: () {
+                  geTitle();
+                },
+                child: TitleBlog(
+                  image: Assets.icons.bluePen.path,
+                  title: "ویرایش عنوان مقاله",
+                  right: Dimens.halfBodyMargin,
+                ),
               ),
               Padding(
                 padding: EdgeInsets.all(Dimens.halfBodyMargin),
