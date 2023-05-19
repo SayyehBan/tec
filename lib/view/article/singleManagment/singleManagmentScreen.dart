@@ -34,14 +34,20 @@ class SingleManagmentArticleScreen extends StatelessWidget {
             children: [
               Stack(
                 children: [
-                  _filePickerController.file.value.name == "nothing"
-                      ? UseCachedNetworkImage(
-                          url: manageArticleController
-                              .articleInfoModel.value.image!,
-                          containerUse: false,
-                        )
-                      : Image.file(
-                          File(_filePickerController.file.value.path!)),
+                  SizedBox(
+                    width: Get.width,
+                    height: Get.height / 3,
+                    child: _filePickerController.file.value.name == "nothing"
+                        ? UseCachedNetworkImage(
+                            url: manageArticleController
+                                .articleInfoModel.value.image!,
+                            containerUse: false,
+                          )
+                        : Image.file(
+                            File(_filePickerController.file.value.path!),
+                            fit: BoxFit.cover,
+                          ),
+                  ),
                   Positioned(
                     top: 0,
                     left: 0,

@@ -28,6 +28,6 @@ class UseCachedNetworkImage extends StatelessWidget {
             : Image(image: imageProvider),
         placeholder: (context, url) => const Loading(),
         errorWidget: (context, url, error) =>
-            Assets.images.singlePlaceHolder.image());
+            Assets.images.singlePlaceHolder.image(fit: BoxFit.cover));
   }
 }
