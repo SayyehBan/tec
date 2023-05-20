@@ -16,7 +16,7 @@ class ManageArticles extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
         child: Scaffold(
-      appBar: appBarList("مدیریت مقتله ها"),
+      appBar: appBarList("مدیریت مقاله ها"),
       body: Obx(() => manageArticleController.loading.value
           ? const Loading()
           : manageArticleController.articleList.isNotEmpty

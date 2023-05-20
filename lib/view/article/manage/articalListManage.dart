@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:tec/controller/article/manage_article_controller.dart';
 import 'package:tec/utilities/useCachedNetworkImage.dart';
+import 'package:tec/view/article/singleManagment/singleManagmentScreen.dart';
 
 class ArticalListManage extends StatelessWidget {
   const ArticalListManage({
@@ -21,7 +22,15 @@ class ArticalListManage extends StatelessWidget {
       physics: const BouncingScrollPhysics(),
       itemBuilder: (context, index) {
         return GestureDetector(
-          onTap: () async {},
+          onTap: () async {
+            manageArticleController.articleInfoModel.update((val) {
+              val?.title = manageArticleController.articleList[index].title!;
+              val?.image = manageArticleController.articleList[index].image!;
+              val?.catName =
+                  manageArticleController.articleList[index].catName!;
+            });
+            Get.to(SingleManagmentArticleScreen());
+          },
           child: Padding(
             padding: const EdgeInsets.all(8.0),
             child: Row(

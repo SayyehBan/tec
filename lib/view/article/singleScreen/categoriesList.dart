@@ -3,10 +3,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:tec/controller/article/list_article_Controller.dart';
+import 'package:tec/controller/article/manage_article_controller.dart';
 import 'package:tec/controller/homeScreen_Controller.dart';
 import 'package:tec/utilities/loading.dart';
 import 'package:tec/utilities/myColors.dart';
-import 'package:tec/view/article/articleListScreen.dart';
 
 class CategoriesList extends StatelessWidget {
   CategoriesList({super.key});
@@ -14,7 +14,8 @@ class CategoriesList extends StatelessWidget {
   var homeScreenController = Get.find<HomeScreenController>();
   ListArtcileController listArtcileController =
       Get.put(ListArtcileController());
-
+  ManageArticleController manageArticleController =
+      Get.find<ManageArticleController>();
   @override
   Widget build(BuildContext context) {
     ThemeData themeData = Theme.of(context);
@@ -30,9 +31,13 @@ class CategoriesList extends StatelessWidget {
                 itemBuilder: (context, index) {
                   return GestureDetector(
                     onTap: () {
-                      listArtcileController.getArticleListWithTagsId(
-                          homeScreenController.tagsList[index].id!);
-                      Get.to(ArticleListScreen());
+                      manageArticleController.articleInfoModel.update((val) {
+                        val?.catId = homeScreenController.tagsList[index].id!;
+                        val?.catName =
+                            homeScreenController.tagsList[index].title!;
+                      });
+
+                      Get.back();
                     },
                     child: Padding(
                       padding: const EdgeInsets.only(left: 8, right: 8),

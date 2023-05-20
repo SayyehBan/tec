@@ -15,7 +15,6 @@ import 'package:tec/utilities/myColors.dart';
 import 'package:tec/utilities/useCachedNetworkImage.dart';
 import 'package:tec/view/article/singleManagment/article_content_editor.dart';
 import 'package:tec/view/article/singleScreen/categoriesList.dart';
-import 'package:tec/view/article/singleScreen/tagListArticle.dart';
 import 'package:tec/view/home/titleBlog.dart';
 
 class SingleManagmentArticleScreen extends StatelessWidget {
@@ -189,6 +188,26 @@ class SingleManagmentArticleScreen extends StatelessWidget {
                   right: Dimens.halfBodyMargin,
                 ),
               ),
+              Padding(
+                padding: EdgeInsets.all(Dimens.halfBodyMargin),
+                child: Text(
+                  manageArticleController.articleInfoModel.value.catName == null
+                      ? "هیچ دسته بندی انتخاب نشده"
+                      : manageArticleController.articleInfoModel.value.catName!,
+                  maxLines: 2,
+                  overflow: TextOverflow.ellipsis,
+                  style: themeData.textTheme.headlineMedium,
+                ),
+              ),
+              ElevatedButton(
+                  onPressed: () async =>
+                      await manageArticleController.storeArticle(),
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Text(manageArticleController.loading.value
+                        ? "صبرکنید..."
+                        : 'ارسال مطلب'),
+                  ))
             ],
           ),
         ),
