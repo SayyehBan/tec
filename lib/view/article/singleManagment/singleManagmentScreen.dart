@@ -13,6 +13,7 @@ import 'package:tec/utilities/dimens.dart';
 import 'package:tec/utilities/loading.dart';
 import 'package:tec/utilities/myColors.dart';
 import 'package:tec/utilities/useCachedNetworkImage.dart';
+import 'package:tec/view/article/singleManagment/article_content_editor.dart';
 import 'package:tec/view/article/singleScreen/tagListArticle.dart';
 import 'package:tec/view/home/titleBlog.dart';
 
@@ -159,10 +160,13 @@ class SingleManagmentArticleScreen extends StatelessWidget {
                   style: themeData.textTheme.headlineMedium,
                 ),
               ),
-              TitleBlog(
-                image: Assets.icons.bluePen.path,
-                title: "ویرایش متن اصلی مقاله",
-                right: Dimens.halfBodyMargin,
+              GestureDetector(
+                onTap: () => Get.to(() => ArticleContentEditor()),
+                child: TitleBlog(
+                  image: Assets.icons.bluePen.path,
+                  title: "ویرایش متن اصلی مقاله",
+                  right: Dimens.halfBodyMargin,
+                ),
               ),
               Padding(
                 padding: EdgeInsets.all(Dimens.halfBodyMargin),
