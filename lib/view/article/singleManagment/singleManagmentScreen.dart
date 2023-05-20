@@ -14,6 +14,7 @@ import 'package:tec/utilities/loading.dart';
 import 'package:tec/utilities/myColors.dart';
 import 'package:tec/utilities/useCachedNetworkImage.dart';
 import 'package:tec/view/article/singleManagment/article_content_editor.dart';
+import 'package:tec/view/article/singleScreen/categoriesList.dart';
 import 'package:tec/view/article/singleScreen/tagListArticle.dart';
 import 'package:tec/view/home/titleBlog.dart';
 
@@ -178,16 +179,43 @@ class SingleManagmentArticleScreen extends StatelessWidget {
                       const Loading(),
                 ),
               ),
-              TitleBlog(
-                image: Assets.icons.bluePen.path,
-                title: "انتخاب دسته بندی",
-                right: Dimens.halfBodyMargin,
+              GestureDetector(
+                onTap: () {
+                  chooseCatsBottomSheet(themeData);
+                },
+                child: TitleBlog(
+                  image: Assets.icons.bluePen.path,
+                  title: "انتخاب دسته بندی",
+                  right: Dimens.halfBodyMargin,
+                ),
               ),
-              TagListArticle(),
             ],
           ),
         ),
       )),
     );
+  }
+
+  void chooseCatsBottomSheet(ThemeData themeData) {
+    Get.bottomSheet(
+        Container(
+          height: Get.height / 1.5,
+          decoration: const BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(20), topRight: Radius.circular(20))),
+          child: Column(children: [
+            const Padding(
+              padding: EdgeInsets.all(8.0),
+              child: Text("انتخاب دسته بندی"),
+            ),
+            const SizedBox(
+              height: 8,
+            ),
+            CategoriesList()
+          ]),
+        ),
+        isScrollControlled: true,
+        persistent: true);
   }
 }

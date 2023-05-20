@@ -126,6 +126,9 @@ class SingleScreen extends StatelessWidget {
                       ),
                     ),
                     TagListArticle(),
+                    const SizedBox(
+                      height: 8,
+                    ),
                     BlogList(),
                   ],
                 ),
