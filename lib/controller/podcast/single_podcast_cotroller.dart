@@ -12,16 +12,19 @@ class SinglePodcastController extends GetxController {
   SinglePodcastController({this.id});
   RxBool loading = false.obs;
   RxList<PodcastsFileModel> podcastFileList = RxList();
+  final player = AudioPlayer();
   late var playList;
-
+  RxBool playState = false.obs;
   @override
-  onInit() {
+  onInit() async {
     super.onInit();
     playList = ConcatenatingAudioSource(
       useLazyPreparation: true,
       children: [],
     );
-    getPodcastFiles();
+    await getPodcastFiles();
+    await player.setAudioSource(playList,
+        initialIndex: 0, initialPosition: Duration.zero);
   }
 
   getPodcastFiles() async {

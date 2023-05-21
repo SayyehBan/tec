@@ -154,38 +154,52 @@ class SinglePodcastScreen extends StatelessWidget {
               decoration: MyDecorations.mainGradiant,
               child: Padding(
                 padding: const EdgeInsets.all(8.0),
-                child: Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: [
-                      LinearPercentIndicator(
-                        percent: 1.0,
-                        backgroundColor: Colors.white,
-                        progressColor: Colors.blue,
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
-                        children: const [
-                          Icon(
-                            Icons.skip_next,
-                            color: Colors.white,
-                          ),
-                          Icon(
-                            Icons.play_circle_fill,
-                            color: Colors.white,
-                            size: 48,
-                          ),
-                          Icon(
-                            Icons.skip_previous,
-                            color: Colors.white,
-                          ),
-                          SizedBox(),
-                          Icon(
-                            Icons.repeat,
-                            color: Colors.white,
-                          ),
-                        ],
-                      )
-                    ]),
+                child: Obx(
+                  () => Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: [
+                        LinearPercentIndicator(
+                          percent: 1.0,
+                          backgroundColor: Colors.white,
+                          progressColor: Colors.blue,
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                          children: [
+                            IconButton(
+                              icon: const Icon(Icons.skip_next),
+                              color: Colors.white,
+                              onPressed: () {},
+                            ),
+                            IconButton(
+                              icon: Icon(singlePodcastController.playState.value
+                                  ? Icons.play_circle_fill
+                                  : Icons.pause_circle_filled),
+                              color: Colors.white,
+                              iconSize: 48,
+                              onPressed: () {
+                                singlePodcastController.playState.value =
+                                    singlePodcastController.player.playing;
+                                singlePodcastController.player.playing
+                                    ? singlePodcastController.player.pause()
+                                    : singlePodcastController.player.play();
+                              },
+                            ),
+                            IconButton(
+                              icon: const Icon(Icons.skip_previous),
+                              color: Colors.white,
+                              onPressed: () {},
+                            ),
+                            const SizedBox(),
+                            IconButton(
+                              icon: const Icon(Icons.repeat),
+                              color: Colors.white,
+                              onPressed: () {},
+                            ),
+                          ],
+                        ),
+                      ]),
+                ),
               ),
             ))
       ]),
