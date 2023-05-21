@@ -1,6 +1,11 @@
+// ignore_for_file: must_be_immutable
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:percent_indicator/linear_percent_indicator.dart';
+import 'package:tec/controller/podcast/single_podcast_cotroller.dart';
 import 'package:tec/gen/assets.gen.dart';
+import 'package:tec/model/model/podcasts_model.dart';
 import 'package:tec/utilities/decorations.dart';
 import 'package:tec/utilities/dimens.dart';
 import 'package:tec/utilities/myColors.dart';
@@ -8,7 +13,13 @@ import 'package:tec/utilities/useCachedNetworkImage.dart';
 import 'package:tec/view/home/titleBlog.dart';
 
 class SinglePodcastScreen extends StatelessWidget {
-  const SinglePodcastScreen({super.key});
+  late SinglePodcastController singlePodcastController;
+  late PodcastsModel podcastsModel;
+  SinglePodcastScreen({super.key}) {
+    podcastsModel = Get.arguments;
+    singlePodcastController =
+        Get.put(SinglePodcastController(id: podcastsModel.id));
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -135,6 +146,41 @@ class SinglePodcastScreen extends StatelessWidget {
             child: Container(
               height: Get.height / Dimens.small,
               decoration: MyDecorations.mainGradiant,
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      LinearPercentIndicator(
+                        percent: 1.0,
+                        backgroundColor: Colors.white,
+                        progressColor: Colors.blue,
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: const [
+                          Icon(
+                            Icons.skip_next,
+                            color: Colors.white,
+                          ),
+                          Icon(
+                            Icons.play_circle_fill,
+                            color: Colors.white,
+                            size: 48,
+                          ),
+                          Icon(
+                            Icons.skip_previous,
+                            color: Colors.white,
+                          ),
+                          SizedBox(),
+                          Icon(
+                            Icons.repeat,
+                            color: Colors.white,
+                          ),
+                        ],
+                      )
+                    ]),
+              ),
             ))
       ]),
     ));
