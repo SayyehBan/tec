@@ -169,26 +169,32 @@ class SinglePodcastScreen extends StatelessWidget {
                             IconButton(
                               icon: const Icon(Icons.skip_next),
                               color: Colors.white,
-                              onPressed: () {},
+                              onPressed: () async {
+                                await singlePodcastController.player
+                                    .seekToNext();
+                              },
                             ),
                             IconButton(
                               icon: Icon(singlePodcastController.playState.value
-                                  ? Icons.play_circle_fill
-                                  : Icons.pause_circle_filled),
+                                  ? Icons.pause_circle_filled
+                                  : Icons.play_circle_fill),
                               color: Colors.white,
                               iconSize: 48,
                               onPressed: () {
-                                singlePodcastController.playState.value =
-                                    singlePodcastController.player.playing;
                                 singlePodcastController.player.playing
                                     ? singlePodcastController.player.pause()
                                     : singlePodcastController.player.play();
+                                singlePodcastController.playState.value =
+                                    singlePodcastController.player.playing;
                               },
                             ),
                             IconButton(
                               icon: const Icon(Icons.skip_previous),
                               color: Colors.white,
-                              onPressed: () {},
+                              onPressed: () async {
+                                await singlePodcastController.player
+                                    .seekToPrevious();
+                              },
                             ),
                             const SizedBox(),
                             IconButton(
