@@ -1,6 +1,7 @@
 // ignore_for_file: file_names
 
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:tec/utilities/myColors.dart';
 
 class TitleBlog extends StatelessWidget {
@@ -27,7 +28,9 @@ class TitleBlog extends StatelessWidget {
           const SizedBox(
             width: 8,
           ),
-          Text(title, style: themeData.textTheme.headlineLarge)
+          SizedBox(
+              width: Get.width / 1.5,
+              child: Text(title, style: themeData.textTheme.headlineLarge))
         ],
       ),
     );

@@ -23,7 +23,7 @@ class UseCachedNetworkImage extends StatelessWidget {
                 decoration: BoxDecoration(
                     borderRadius: const BorderRadius.all(Radius.circular(16)),
                     image: DecorationImage(
-                        image: imageProvider, fit: BoxFit.cover)),
+                        image: imageProvider, fit: BoxFit.fill)),
               )
             : Image(image: imageProvider),
         placeholder: (context, url) => const Loading(),

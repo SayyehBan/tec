@@ -37,10 +37,13 @@ class SinglePodcastScreen extends StatelessWidget {
               children: [
                 Stack(
                   children: [
-                    const UseCachedNetworkImage(
-                      url:
-                          "https://digiato.com/wp-content/uploads/2022/12/56-910x600.jpg",
-                      containerUse: false,
+                    SizedBox(
+                      height: Get.height / 3,
+                      width: double.infinity,
+                      child: UseCachedNetworkImage(
+                        url: podcastsModel.poster!,
+                        containerUse: false,
+                      ),
                     ),
                     Positioned(
                       top: 0,
@@ -87,7 +90,7 @@ class SinglePodcastScreen extends StatelessWidget {
                   child: Align(
                     alignment: Alignment.centerRight,
                     child: Text(
-                      "عنوان پادکست",
+                      podcastsModel.title!,
                       maxLines: 2,
                       overflow: TextOverflow.ellipsis,
                       style: themeData.textTheme.headlineMedium,
@@ -103,7 +106,7 @@ class SinglePodcastScreen extends StatelessWidget {
                         width: 16,
                       ),
                       Text(
-                        "مهسا امینی",
+                        podcastsModel.author!,
                         style: themeData.textTheme.headlineMedium,
                       ),
                     ],
@@ -111,28 +114,31 @@ class SinglePodcastScreen extends StatelessWidget {
                 ),
                 Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: ListView.builder(
-                    itemCount: 5,
-                    shrinkWrap: true,
-                    itemBuilder: (context, index) {
-                      return Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            TitleBlog(
-                              image: Assets.icons.microphon.path,
-                              title: "بخش چهارم : فریلنسر دیوانه",
-                              right: Dimens.halfBodyMargin,
-                            ),
-                            Text(
-                              "25:00",
-                              style: themeData.textTheme.headlineMedium,
-                            )
-                          ],
-                        ),
-                      );
-                    },
+                  child: Obx(
+                    () => ListView.builder(
+                      itemCount: singlePodcastController.podcastFileList.length,
+                      shrinkWrap: true,
+                      itemBuilder: (context, index) {
+                        return Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              TitleBlog(
+                                image: Assets.icons.microphon.path,
+                                title: singlePodcastController
+                                    .podcastFileList[index].title!,
+                                right: Dimens.halfBodyMargin,
+                              ),
+                              Text(
+                                "${singlePodcastController.podcastFileList[index].lenght!}:00",
+                                style: themeData.textTheme.headlineMedium,
+                              ),
+                            ],
+                          ),
+                        );
+                      },
+                    ),
                   ),
                 )
               ],
