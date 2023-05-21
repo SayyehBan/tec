@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:tec/controller/register_controller.dart';
 import 'package:tec/gen/assets.gen.dart';
+import 'package:tec/utilities/decorations.dart';
 import 'package:tec/utilities/dimens.dart';
 import 'package:tec/utilities/myColors.dart';
 
@@ -34,10 +35,8 @@ class NavBarHome extends StatelessWidget {
             left: Dimens.bodyMargin,
           ),
           child: Container(
-            height: Get.size.height / Dimens.small,
-            decoration: const BoxDecoration(
-                borderRadius: BorderRadius.all(Radius.circular(18)),
-                gradient: LinearGradient(colors: GradiantColors.bottomNav)),
+            height: Get.height / Dimens.small,
+            decoration: MyDecorations.mainGradiant,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [

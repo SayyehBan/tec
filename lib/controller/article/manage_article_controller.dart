@@ -64,6 +64,7 @@ class ManageArticleController extends GetxController {
     var response =
         await DioService().postMethod(map, ApiUrlConstant.articlePost);
     debugPrint(response.data);
+    Get.back();
     loading.value = false;
   }
 }

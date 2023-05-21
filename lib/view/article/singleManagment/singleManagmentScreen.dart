@@ -153,11 +153,14 @@ class SingleManagmentArticleScreen extends StatelessWidget {
               ),
               Padding(
                 padding: EdgeInsets.all(Dimens.halfBodyMargin),
-                child: Text(
-                  manageArticleController.articleInfoModel.value.title!,
-                  maxLines: 2,
-                  overflow: TextOverflow.ellipsis,
-                  style: themeData.textTheme.headlineMedium,
+                child: Align(
+                  alignment: Alignment.centerRight,
+                  child: Text(
+                    manageArticleController.articleInfoModel.value.title!,
+                    maxLines: 2,
+                    overflow: TextOverflow.ellipsis,
+                    style: themeData.textTheme.headlineMedium,
+                  ),
                 ),
               ),
               GestureDetector(
@@ -200,8 +203,9 @@ class SingleManagmentArticleScreen extends StatelessWidget {
                 ),
               ),
               ElevatedButton(
-                  onPressed: () async =>
-                      await manageArticleController.storeArticle(),
+                  onPressed: () async {
+                    return await manageArticleController.storeArticle();
+                  },
                   child: Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: Text(manageArticleController.loading.value

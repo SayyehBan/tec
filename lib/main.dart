@@ -12,7 +12,7 @@ import 'package:tec/view/article/manage/manage_article.dart';
 import 'package:tec/view/article/singleManagment/singleManagmentScreen.dart';
 import 'package:tec/view/home/homeScreen.dart';
 import 'package:tec/view/article/singleScreen/singleScreen.dart';
-import 'package:tec/view/splash/splashScreen.dart';
+import 'package:tec/view/podcast/single_podcast.dart';
 
 void main() async {
   HttpOverrides.global = MyHttpOverrides();
@@ -56,7 +56,8 @@ class MyApp extends StatelessWidget {
             page: () => SingleManagmentArticleScreen(),
             binding: ArticleManagerBinding()),
       ],
-      home: const SplashScreen(),
+      home: const SinglePodcastScreen(),
+      // home: const SplashScreen(),
     );
   }
 
