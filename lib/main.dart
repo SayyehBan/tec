@@ -13,6 +13,7 @@ import 'package:tec/view/article/singleManagment/singleManagmentScreen.dart';
 import 'package:tec/view/home/homeScreen.dart';
 import 'package:tec/view/article/singleScreen/singleScreen.dart';
 import 'package:tec/view/podcast/single_podcast.dart';
+import 'package:tec/view/splash/splashScreen.dart';
 
 void main() async {
   HttpOverrides.global = MyHttpOverrides();
@@ -55,9 +56,13 @@ class MyApp extends StatelessWidget {
             name: NamedRoute.routeSingleManagmentArticleScreen,
             page: () => SingleManagmentArticleScreen(),
             binding: ArticleManagerBinding()),
+        GetPage(
+          name: NamedRoute.routeSinglePodcastScreen,
+          page: () => SinglePodcastScreen(),
+        ),
       ],
-      home: const SinglePodcastScreen(),
-      // home: const SplashScreen(),
+      // home: const SinglePodcastScreen(),
+      home: const SplashScreen(),
     );
   }
 
@@ -137,9 +142,11 @@ class MyApp extends StatelessWidget {
 }
 
 class NamedRoute {
+  NamedRoute._();
   static String routeHomeScreen = "/HomeScreen";
   static String routeSingleScreen = "/SingleScreen";
   static String routeManageArticles = "/ManageArticles";
   static String routeSingleManagmentArticleScreen =
       "/SingleManagmentArticleScreen";
+  static String routeSinglePodcastScreen = "/SinglePodcastScreen";
 }
