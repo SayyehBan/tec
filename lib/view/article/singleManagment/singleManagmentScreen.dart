@@ -149,6 +149,7 @@ class SingleManagmentArticleScreen extends StatelessWidget {
                   image: Assets.icons.bluePen.path,
                   title: "ویرایش عنوان مقاله",
                   right: Dimens.halfBodyMargin,
+                  color: SolidColors.seeMore,
                 ),
               ),
               Padding(
@@ -169,6 +170,7 @@ class SingleManagmentArticleScreen extends StatelessWidget {
                   image: Assets.icons.bluePen.path,
                   title: "ویرایش متن اصلی مقاله",
                   right: Dimens.halfBodyMargin,
+                  color: SolidColors.seeMore,
                 ),
               ),
               Padding(
@@ -189,6 +191,7 @@ class SingleManagmentArticleScreen extends StatelessWidget {
                   image: Assets.icons.bluePen.path,
                   title: "انتخاب دسته بندی",
                   right: Dimens.halfBodyMargin,
+                  color: SolidColors.seeMore,
                 ),
               ),
               Padding(

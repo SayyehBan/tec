@@ -1,6 +1,5 @@
 // ignore_for_file: prefer_typing_uninitialized_variables
 
-import 'package:flutter/foundation.dart';
 import 'package:get/get.dart';
 import 'package:just_audio/just_audio.dart';
 import 'package:tec/model/model/podcasts_file_model.dart';
@@ -15,6 +14,7 @@ class SinglePodcastController extends GetxController {
   final player = AudioPlayer();
   late var playList;
   RxBool playState = false.obs;
+  RxInt currentFileIndex = 0.obs;
   @override
   onInit() async {
     super.onInit();

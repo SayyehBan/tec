@@ -119,22 +119,38 @@ class SinglePodcastScreen extends StatelessWidget {
                       itemCount: singlePodcastController.podcastFileList.length,
                       shrinkWrap: true,
                       itemBuilder: (context, index) {
-                        return Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              TitleBlog(
-                                image: Assets.icons.microphon.path,
-                                title: singlePodcastController
-                                    .podcastFileList[index].title!,
-                                right: Dimens.halfBodyMargin,
-                              ),
-                              Text(
-                                "${singlePodcastController.podcastFileList[index].lenght!}:00",
-                                style: themeData.textTheme.headlineMedium,
-                              ),
-                            ],
+                        return GestureDetector(
+                          onTap: () async {
+                            await singlePodcastController.player
+                                .seek(Duration.zero, index: index);
+                            //گرفتن شناسه اینکه کدام داره پخش میشه
+                            singlePodcastController.currentFileIndex.value =
+                                singlePodcastController.player.currentIndex!;
+                          },
+                          child: Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Obx(
+                                  () => TitleBlog(
+                                    image: Assets.icons.microphon.path,
+                                    title: singlePodcastController
+                                        .podcastFileList[index].title!,
+                                    right: Dimens.halfBodyMargin,
+                                    color: singlePodcastController
+                                                .currentFileIndex.value ==
+                                            index
+                                        ? SolidColors.seeMore
+                                        : SolidColors.textTile,
+                                  ),
+                                ),
+                                Text(
+                                  "${singlePodcastController.podcastFileList[index].lenght!}:00",
+                                  style: themeData.textTheme.headlineMedium,
+                                ),
+                              ],
+                            ),
                           ),
                         );
                       },
@@ -172,6 +188,10 @@ class SinglePodcastScreen extends StatelessWidget {
                               onPressed: () async {
                                 await singlePodcastController.player
                                     .seekToNext();
+                                //گرفتن شناسه اینکه کدام داره پخش میشه
+                                singlePodcastController.currentFileIndex.value =
+                                    singlePodcastController
+                                        .player.currentIndex!;
                               },
                             ),
                             IconButton(
@@ -181,11 +201,17 @@ class SinglePodcastScreen extends StatelessWidget {
                               color: Colors.white,
                               iconSize: 48,
                               onPressed: () {
+                                //تعیین وضعیت اینکه پخش بشه یا متوقف بشه پخش
                                 singlePodcastController.player.playing
                                     ? singlePodcastController.player.pause()
                                     : singlePodcastController.player.play();
+                                //گرفتن وضعیت اینکه پخش بشه یا متوقف
                                 singlePodcastController.playState.value =
                                     singlePodcastController.player.playing;
+                                //گرفتن شناسه اینکه کدام داره پخش میشه
+                                singlePodcastController.currentFileIndex.value =
+                                    singlePodcastController
+                                        .player.currentIndex!;
                               },
                             ),
                             IconButton(
@@ -194,6 +220,10 @@ class SinglePodcastScreen extends StatelessWidget {
                               onPressed: () async {
                                 await singlePodcastController.player
                                     .seekToPrevious();
+                                //گرفتن شناسه اینکه کدام داره پخش میشه
+                                singlePodcastController.currentFileIndex.value =
+                                    singlePodcastController
+                                        .player.currentIndex!;
                               },
                             ),
                             const SizedBox(),

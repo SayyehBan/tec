@@ -6,6 +6,7 @@ import 'package:tec/controller/homeScreen_Controller.dart';
 import 'package:tec/gen/assets.gen.dart';
 import 'package:tec/utilities/dimens.dart';
 import 'package:tec/utilities/loading.dart';
+import 'package:tec/utilities/myColors.dart';
 import 'package:tec/view/article/articleListScreen.dart';
 import 'package:tec/view/home/blogList.dart';
 import 'package:tec/view/home/podcastsBlog.dart';
@@ -49,6 +50,7 @@ class HomeMainScreen extends StatelessWidget {
                         image: Assets.icons.bluePen.path,
                         title: MyStrings.viewHottestPosts,
                         right: Dimens.bodyMargin,
+                        color: SolidColors.seeMore,
                       ),
                     ),
                     const SizedBox(
@@ -61,6 +63,7 @@ class HomeMainScreen extends StatelessWidget {
                       image: Assets.icons.microphon.path,
                       title: MyStrings.viewHottestPodcasts,
                       right: Dimens.bodyMargin,
+                      color: SolidColors.seeMore,
                     ),
                     //Podcasts Blog
                     PodcastsBlog(),
