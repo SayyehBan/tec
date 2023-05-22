@@ -1,8 +1,8 @@
 // ignore_for_file: must_be_immutable
 
+import 'package:audio_video_progress_bar/audio_video_progress_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:percent_indicator/linear_percent_indicator.dart';
 import 'package:tec/controller/podcast/single_podcast_cotroller.dart';
 import 'package:tec/gen/assets.gen.dart';
 import 'package:tec/model/model/podcasts_model.dart';
@@ -162,11 +162,11 @@ class SinglePodcastScreen extends StatelessWidget {
           ),
         ),
         Positioned(
-            bottom: 8,
+            bottom: 15,
             right: Dimens.bodyMargin,
             left: Dimens.bodyMargin,
             child: Container(
-              height: Get.height / Dimens.small,
+              height: Get.height / 6,
               decoration: MyDecorations.mainGradiant,
               child: Padding(
                 padding: const EdgeInsets.all(8.0),
@@ -174,10 +174,25 @@ class SinglePodcastScreen extends StatelessWidget {
                   () => Column(
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
-                        LinearPercentIndicator(
-                          percent: singlePodcastController.progressValue.value,
-                          backgroundColor: Colors.white,
-                          progressColor: Colors.blue,
+                        Obx(
+                          () => ProgressBar(
+                            thumbColor: SolidColors.seeMore,
+                            baseBarColor: Colors.white,
+                            progressBarColor: SolidColors.seeMore,
+                            timeLabelTextStyle:
+                                themeData.textTheme.headlineSmall,
+                            buffered: singlePodcastController.bufferValue.value,
+                            progress:
+                                singlePodcastController.progressValue.value,
+                            total: singlePodcastController.player.duration ??
+                                const Duration(seconds: 0),
+                            onSeek: (position) {
+                              singlePodcastController.player.seek(position);
+                              singlePodcastController.player.playing
+                                  ? singlePodcastController.startProgress()
+                                  : singlePodcastController.timer!.cancel();
+                            },
+                          ),
                         ),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -203,9 +218,13 @@ class SinglePodcastScreen extends StatelessWidget {
                               onPressed: () {
                                 //تعیین وضعیت اینکه پخش بشه یا متوقف بشه پخش
                                 singlePodcastController.player.playing
+                                    ? singlePodcastController.timer!.cancel()
+                                    : singlePodcastController.startProgress();
+                                //تعیین وضعیت اینکه پخش بشه یا متوقف بشه پخش
+                                singlePodcastController.player.playing
                                     ? singlePodcastController.player.pause()
                                     : singlePodcastController.player.play();
-                                singlePodcastController.startProgree();
+                                singlePodcastController.startProgress();
                                 //گرفتن وضعیت اینکه پخش بشه یا متوقف
                                 singlePodcastController.playState.value =
                                     singlePodcastController.player.playing;

@@ -17,7 +17,7 @@ class SinglePodcastController extends GetxController {
   late var playList;
   RxBool playState = false.obs;
   RxInt currentFileIndex = 0.obs;
-  Timer? timer;
+
   @override
   onInit() async {
     super.onInit();
@@ -46,16 +46,26 @@ class SinglePodcastController extends GetxController {
     }
   }
 
-  RxDouble progressValue = 0.0.obs;
-  startProgree() {
+  Rx<Duration> progressValue = const Duration(seconds: 0).obs;
+  Rx<Duration> bufferValue = const Duration(seconds: 0).obs;
+  Timer? timer;
+  startProgress() {
     const tick = Duration(seconds: 1);
-    int duration = player.duration!.inSeconds;
-    var step = 1 / duration;
+    int duration = player.duration!.inSeconds - player.position.inSeconds;
+    if (timer != null) {
+      if (timer!.isActive) {
+        timer!.cancel();
+        timer = null;
+      }
+    }
     timer = Timer.periodic(tick, (timer) {
       duration--;
-      progressValue.value += step;
+      progressValue.value = player.position;
+      bufferValue.value = player.bufferedPosition;
       if (duration <= 0) {
         timer.cancel();
+        progressValue.value = Duration.zero;
+        bufferValue.value = Duration.zero;
       }
     });
   }
