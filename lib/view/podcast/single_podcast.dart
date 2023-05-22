@@ -175,7 +175,7 @@ class SinglePodcastScreen extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
                         LinearPercentIndicator(
-                          percent: 1.0,
+                          percent: singlePodcastController.progressValue.value,
                           backgroundColor: Colors.white,
                           progressColor: Colors.blue,
                         ),
@@ -205,6 +205,7 @@ class SinglePodcastScreen extends StatelessWidget {
                                 singlePodcastController.player.playing
                                     ? singlePodcastController.player.pause()
                                     : singlePodcastController.player.play();
+                                singlePodcastController.startProgree();
                                 //گرفتن وضعیت اینکه پخش بشه یا متوقف
                                 singlePodcastController.playState.value =
                                     singlePodcastController.player.playing;

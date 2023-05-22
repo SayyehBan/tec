@@ -1,5 +1,7 @@
 // ignore_for_file: prefer_typing_uninitialized_variables
 
+import 'dart:async';
+
 import 'package:get/get.dart';
 import 'package:just_audio/just_audio.dart';
 import 'package:tec/model/model/podcasts_file_model.dart';
@@ -15,6 +17,7 @@ class SinglePodcastController extends GetxController {
   late var playList;
   RxBool playState = false.obs;
   RxInt currentFileIndex = 0.obs;
+  Timer? timer;
   @override
   onInit() async {
     super.onInit();
@@ -41,5 +44,19 @@ class SinglePodcastController extends GetxController {
       }
       loading.value = false;
     }
+  }
+
+  RxDouble progressValue = 0.0.obs;
+  startProgree() {
+    const tick = Duration(seconds: 1);
+    int duration = player.duration!.inSeconds;
+    var step = 1 / duration;
+    timer = Timer.periodic(tick, (timer) {
+      duration--;
+      progressValue.value += step;
+      if (duration <= 0) {
+        timer.cancel();
+      }
+    });
   }
 }
