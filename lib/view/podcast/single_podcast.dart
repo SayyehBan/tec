@@ -247,10 +247,16 @@ class SinglePodcastScreen extends StatelessWidget {
                               },
                             ),
                             const SizedBox(),
-                            IconButton(
-                              icon: const Icon(Icons.repeat),
-                              color: Colors.white,
-                              onPressed: () {},
+                            Obx(
+                              () => IconButton(
+                                icon: const Icon(Icons.repeat),
+                                color: singlePodcastController.isLoopAll.value
+                                    ? Colors.blue
+                                    : Colors.white,
+                                onPressed: () {
+                                  singlePodcastController.setLoopMode();
+                                },
+                              ),
                             ),
                           ],
                         ),
