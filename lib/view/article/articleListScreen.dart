@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:tec/controller/article/list_article_Controller.dart';
 import 'package:tec/controller/article/single_article_Controller.dart';
-import 'package:tec/main.dart';
+import 'package:tec/route_manager/namesRoute.dart';
 import 'package:tec/utilities/loading.dart';
 import 'package:tec/utilities/useCachedNetworkImage.dart';
 import 'package:tec/view/article/appBarList.dart';

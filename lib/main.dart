@@ -4,16 +4,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
-import 'package:tec/binding/binding.dart';
 import 'package:tec/gen/fonts.gen.dart';
 import 'package:tec/my_http_overrides.dart';
+import 'package:tec/route_manager/page.dart';
 import 'package:tec/utilities/myColors.dart';
-import 'package:tec/view/article/manage/manage_article.dart';
-import 'package:tec/view/article/singleManagment/singleManagmentScreen.dart';
-import 'package:tec/view/home/homeScreen.dart';
-import 'package:tec/view/article/singleScreen/singleScreen.dart';
-import 'package:tec/view/podcast/single_podcast.dart';
-import 'package:tec/view/splash/splashScreen.dart';
+
+import 'route_manager/namesRoute.dart';
 
 void main() async {
   HttpOverrides.global = MyHttpOverrides();
@@ -36,33 +32,11 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     ThemeData themeData = Theme.of(context);
     return GetMaterialApp(
+      initialRoute: NamedRoute.initialRoute,
       locale: const Locale('fa'),
       theme: lightTheme(themeData),
       debugShowCheckedModeBanner: false,
-      getPages: [
-        GetPage(
-            name: NamedRoute.routeHomeScreen,
-            page: () => HomeScreen(),
-            binding: RegisterBinding()),
-        GetPage(
-            name: NamedRoute.routeSingleScreen,
-            page: () => SingleScreen(),
-            binding: ArticleBinding()),
-        GetPage(
-            name: NamedRoute.routeManageArticles,
-            page: () => ManageArticles(),
-            binding: ArticleManagerBinding()),
-        GetPage(
-            name: NamedRoute.routeSingleManagmentArticleScreen,
-            page: () => SingleManagmentArticleScreen(),
-            binding: ArticleManagerBinding()),
-        GetPage(
-          name: NamedRoute.routeSinglePodcastScreen,
-          page: () => SinglePodcastScreen(),
-        ),
-      ],
-      // home: const SinglePodcastScreen(),
-      home: const SplashScreen(),
+      getPages: Pages.pages,
     );
   }
 
@@ -139,14 +113,4 @@ class MyApp extends StatelessWidget {
               fontWeight: FontWeight.w700),
         ));
   }
-}
-
-class NamedRoute {
-  NamedRoute._();
-  static String routeHomeScreen = "/HomeScreen";
-  static String routeSingleScreen = "/SingleScreen";
-  static String routeManageArticles = "/ManageArticles";
-  static String routeSingleManagmentArticleScreen =
-      "/SingleManagmentArticleScreen";
-  static String routeSinglePodcastScreen = "/SinglePodcastScreen";
 }

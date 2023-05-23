@@ -3,7 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:tec/controller/homeScreen_Controller.dart';
-import 'package:tec/main.dart';
+import 'package:tec/route_manager/namesRoute.dart';
 import 'package:tec/utilities/dimens.dart';
 import 'package:tec/utilities/loading.dart';
 import 'package:tec/utilities/useCachedNetworkImage.dart';

@@ -82,6 +82,10 @@ class SinglePodcastController extends GetxController {
   timerCheck() {
     if (player.playing) {
       startProgress();
+    } else {
+      timer!.cancel();
+      progressValue.value = const Duration(seconds: 0);
+      bufferValue.value = const Duration(seconds: 0);
     }
   }
 
