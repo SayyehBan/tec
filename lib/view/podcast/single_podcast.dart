@@ -126,6 +126,9 @@ class SinglePodcastScreen extends StatelessWidget {
                             //گرفتن شناسه اینکه کدام داره پخش میشه
                             singlePodcastController.currentFileIndex.value =
                                 singlePodcastController.player.currentIndex!;
+                            singlePodcastController.player.play();
+                            singlePodcastController.playState.value = true;
+                            singlePodcastController.timerCheck();
                           },
                           child: Padding(
                             padding: const EdgeInsets.all(8.0),

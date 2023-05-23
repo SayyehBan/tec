@@ -50,6 +50,7 @@ class RegisterController extends GetxController {
         break;
       case 'expired':
         Get.snackbar('خطا', 'کدفعال سازی منقضی شده است');
+
         break;
     }
   }

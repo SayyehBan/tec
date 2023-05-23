@@ -32,11 +32,18 @@ class MusicPlayer extends StatelessWidget {
               progress: singlePodcastController.progressValue.value,
               total: singlePodcastController.player.duration ??
                   const Duration(seconds: 0),
-              onSeek: (position) {
+              onSeek: (position) async {
                 singlePodcastController.player.seek(position);
-                singlePodcastController.player.playing
-                    ? singlePodcastController.startProgress()
-                    : singlePodcastController.timer!.cancel();
+                //مدیریت وضعیت پخش
+                if (singlePodcastController.player.playing) {
+                  singlePodcastController.startProgress();
+                } else if (position <= const Duration(seconds: 0)) {
+                  await singlePodcastController.player.seekToNext();
+                  //گرفتن شناسه اینکه کدام داره پخش میشه
+                  singlePodcastController.currentFileIndex.value =
+                      singlePodcastController.player.currentIndex!;
+                  singlePodcastController.timerCheck();
+                }
               },
             ),
           ),

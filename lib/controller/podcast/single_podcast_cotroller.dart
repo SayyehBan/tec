@@ -62,7 +62,9 @@ class SinglePodcastController extends GetxController {
     if (player.duration!.inSeconds == player.position.inSeconds) {
       if (isLoopAll.value == false) {
         player.pause();
-        playState.value = false;
+        playState.update((val) {
+          val = false;
+        });
       }
     }
     timer = Timer.periodic(tick, (timer) {

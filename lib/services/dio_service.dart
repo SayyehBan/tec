@@ -16,9 +16,10 @@ class DioService {
         .then((response) {
       return response;
     }).catchError((error) {
-      if (error is DioError) {
+      if (error.response != null) {
         return error.response!;
       }
+
       return null;
     });
   }
